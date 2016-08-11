@@ -11,7 +11,7 @@ import socket
 #get bib
 from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
-#l7xx7ed1d73cf63d4105a2cf1df41632344f
+
 #990036464790302486|22318733790002486|23318733770002486|
 
 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
