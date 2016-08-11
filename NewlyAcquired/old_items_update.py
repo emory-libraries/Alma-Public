@@ -13,7 +13,6 @@ from urllib import urlencode, quote_plus
 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
 socket.socket = socks.socksocket
 #get api key as program argument
-#l7xx2bea837c1e0a4ab68d5c23da8cee51ad
 
 def api_put(url,apikey,xml_string):
 
