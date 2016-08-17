@@ -3,8 +3,16 @@
 #Purpose: run scripts to add and remove 598 $$aNEW
 #Date: 08/04/2016
 
+alma_environ="/alma/config/environ"
+. ${alma_environ}  # include environment file
+# export all of the environ variables to my children
+for env_var in $(cat ${alma_environ} | awk -F'=' '{print $1}')
+do
+  export ${env_var}
+done
+
 config="/alma/config/produce_new_list.cfg"
-apikey=""
+config2="/alma/config/update_new_books.cfg"
 new_titles="/alma/integrations/new_books/primo/new_titles/"
 work="/alma/integrations/new_books/primo/work/"
 pending="/alma/integrations/new_books/primo/pending/in_process_books"
@@ -66,7 +74,7 @@ fi
 
 if [ -f ${pending} ]; then
     if [ -s ${pending} ]; then
-        cat ${pending} | ${bindir}new_check_pending.py ${apikey} > ${work}new_pending_${todays_date} 2> ${errorlog5}
+        cat ${pending} | ${bindir}new_check_pending.py l7xx2bea837c1e0a4ab68d5c23da8cee51ad > ${work}new_pending_${todays_date} 2> ${errorlog5}
     else
         mutt -s ${pending} -- ${mail_list} <<EOM
 File ${pending} was not created today.
@@ -82,7 +90,7 @@ ${bindir}new_pending_items_process.sh
 
 if [ -f ${new_titles}new_mms_ids_${todays_date} ]; then
     if [ -s ${new_titles}new_mms_ids_${todays_date} ]; then
-        cat ${new_titles}new_mms_ids_${todays_date} | ${bindir}new_items_put.py ${apikey} 2> ${errorlog6}
+        cat ${new_titles}new_mms_ids_${todays_date} | ${bindir}new_items_put.py ${config2} 2> ${errorlog6}
     else
         mutt -s "${work}new_mms_ids_${todays_date}" -- ${mail_list} <<EOM
 File ${work}new_mms_ids_${todays_date} was not created today.
