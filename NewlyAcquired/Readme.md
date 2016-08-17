@@ -16,8 +16,8 @@ added to crontab
 -------------------------------------------------------------------------------------------------
 
 #####get new records with analytics api
-```
 input = config file with:
+```
 url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/analytics/reports
 path=[path of the analytics report]
 apikey=[your api key]
