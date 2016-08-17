@@ -5,7 +5,7 @@
 
 ####Purpose: Flag items acquired in the last 60 days to create a Newly Acquired flag for Primo
 
-####Dependencies: the api scripts are using the socks and socket modules to place api calls via bela
+####Dependencies: the api scripts are using the socks and socket modules to place api calls via bela ; this will also remove outdated ebooks
 
 -------------------------------------------------------------------------------------------------
 
