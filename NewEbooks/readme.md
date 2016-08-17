@@ -11,6 +11,6 @@ master script to run the newly acquired scripts below
 
 added to crontab
 
-$06 11 * * * bash /alma/bin/new_ebooks_process.sh 2> /tmp/new_ebooks.log
+>06 11 * * * bash /alma/bin/new_ebooks_process.sh 2> /tmp/new_ebooks.log
 
 -------------------------------------------------------------------------------------------------
