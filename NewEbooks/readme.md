@@ -4,3 +4,7 @@
 #Dependencies: the api scripts are using the socks and socket modules to place api calls via bela
 
 -------------------------------------------------------------------------------------------------
+
+#master script to run the newly acquired scripts below
+#added to crontab
+26 11 * * * bash /alma/bin/newly_acquired.sh 2> /tmp/newly_acquired.log
