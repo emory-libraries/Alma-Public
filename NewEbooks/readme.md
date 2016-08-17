@@ -18,13 +18,13 @@ get new records with analytics api
 
 input = config file with:
 
-url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/analytics/reports
+```url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/analytics/reports
 
 path=[path of the analytics report]
 
 apikey=[your api key]
 
-limit=1000
+limit=1000```
 
 output = pipe delimited item report
 
