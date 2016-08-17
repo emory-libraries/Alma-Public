@@ -8,6 +8,9 @@ Dependencies: the api scripts are using the socks and socket modules to place ap
 
 -------------------------------------------------------------------------------------------------
 master script to run the newly acquired scripts below
+
 added to crontab
-26 11 * * * bash /alma/bin/newly_acquired.sh 2> /tmp/newly_acquired.log
+
+06 11 * * * bash /alma/bin/new_ebooks_process.sh 2> /tmp/new_ebooks.log
+
 -------------------------------------------------------------------------------------------------
