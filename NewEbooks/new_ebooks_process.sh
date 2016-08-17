@@ -3,7 +3,7 @@
 today=$(date +"%Y%m%d")
 sixty_days=$(date +"%Y%m%d" -d"60 days ago")
 bindir="/alma/bin/"
-mail_list="acoope5@emory.edu"
+mail_list=""
 targetdir="/alma/integrations/new_books/primo/new_titles/"
 cache="/alma/integrations/new_books/primo/cache/new_cached"
 config="/alma/config/produce_new_ebooks.cfg"
