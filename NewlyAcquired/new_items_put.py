@@ -5,6 +5,7 @@ import sys
 import xml.etree.ElementTree as elementTree
 import socks
 import socket
+import re
 
 #get bib
 from urllib2 import Request, urlopen
@@ -13,6 +14,7 @@ from urllib import urlencode, quote_plus
 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
 socket.socket = socks.socksocket
 #get api key as program argument
+#l7xx7ed1d73cf63d4105a2cf1df41632344f
 
 def api_put(url,apikey,xml_string):
 
@@ -40,16 +42,30 @@ def api_put(url,apikey,xml_string):
 
 def main():
 
-  apiKey = sys.argv[1]
-
+  if len(sys.argv) < 2:
+    sys.stderr.write("system failure. configuration file is missing."+"\n")
+    return 1
+  try:
+    configuration = open(sys.argv[1], 'Ur')
+  except:
+    sys.stderr.write("couldn't open configuration file "+sys.argv[1]+"\n")
+  pat = re.compile("(.*?)=(.*)")
+  for line in configuration:
+    line = line.rstrip("\n")
+    m = pat.match(line)
+    if m:
+      if m.group(1) == "apikey":
+        apikey = m.group(2)
+  configuration.close()
   for line in sys.stdin:
       try:
         mmsId = line.rstrip('\n')
 #url = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/{mms_id}'.replace('{mms_id}',quote_plus('990029398460302486'))
         url = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/{mms_id}'.replace('{mms_id}',quote_plus(mmsId))
-        queryParams = '?' + urlencode({ quote_plus('expand') : 'None' ,quote_plus('apikey') : apiKey })
+        queryParams = '?' + urlencode({ quote_plus('expand') : 'None' ,quote_plus('apikey') : apikey })
         request = Request(url + queryParams)
         request.get_method = lambda: 'GET'
+        print url + queryParams
         response_body_bib = urlopen(request).read()
 #        print url
 #        print response_body_bib
@@ -73,7 +89,7 @@ def main():
       except:
         sys.stderr.write("could not update marcxml "+mmsId+"\n")
       try:
-        response,outcome = api_put(url,apiKey,xml_modified)
+        response,outcome = api_put(url,apikey,xml_modified)
 ### put also fails with original xml
 ###        response,outcome = api_put(url,apiKey,response_body_bib)
         if outcome == 0:
@@ -83,7 +99,7 @@ def main():
       except:
         sys.stderr.write("PUT failed"+"\n")
       try:
-        queryParams = '?' + urlencode({ quote_plus('apikey') : apiKey })
+        queryParams = '?' + urlencode({ quote_plus('apikey') : apikey })
         values = xml_modified
         headers = {  'Content-Type':'application/xml'  }
         request = Request(url + queryParams
