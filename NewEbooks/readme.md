@@ -29,3 +29,8 @@ output = pipe delimited item report
 >${bindir}new_items_analytics_list.py ${config} > ${work}work_file_${todays_date} 2> $errorlog1
 
 -------------------------------------------------------------------------------------------------
+#####add 598 $$a to new items
+input: file of new mmsids, config file with apikey
+>cat ${new_titles}new_mms_ids_${todays_date} | ${bindir}new_items_put.py ${api_key} 2> ${errorlog6}
+
+-------------------------------------------------------------------------------------------------
