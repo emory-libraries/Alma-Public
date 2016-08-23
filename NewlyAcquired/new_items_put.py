@@ -3,16 +3,12 @@ from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 import sys
 import xml.etree.ElementTree as elementTree
-import socks
-import socket
 import re
 
 #get bib
 from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 
-socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-socket.socket = socks.socksocket
 #get api key as program argument
 #l7xx7ed1d73cf63d4105a2cf1df41632344f
 
