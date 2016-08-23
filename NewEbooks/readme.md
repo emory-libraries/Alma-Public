@@ -2,7 +2,7 @@
 ####python version 2.7.5
 ####bash version 4.1.2(1)
 ####Purpose: Flag items acquired in the last 60 days to create a Newly Acquired flag for Primo
-####Dependencies: titles that are older than 60 days will be removed when the newly acquired script runs
+####Dependencies: titles that are older than 60 days will be removed when the newly acquired script runs ; analytics is used to produce the list of record numbers
 -------------------------------------------------------------------------------------------------
 #####master script to run the new ebooks scripts below
 
@@ -34,4 +34,11 @@ output = pipe delimited item report
 input: file of new mmsids, config file with apikey
 >cat ${new_titles}new_mms_ids_${todays_date} | ${bindir}new_items_put.py ${api_key} 2> ${errorlog6}
 
+-------------------------------------------------------------------------------------------------
+#####analytics report
+Bibliographic Details > MMS Id / Portfolio Activation Date > Portfolio Activation Date
+Filter: On Portfolio Activation Date add SQL expression
+```
+TIMESTAMPADD(SQL_TSI_DAY, -1, CURRENT_DATE)
+```
 -------------------------------------------------------------------------------------------------
