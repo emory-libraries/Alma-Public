@@ -4,8 +4,6 @@ import sys
 import re
 import os
 import xml.etree.ElementTree as elementTree
-import socks
-import socket
 from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 
@@ -18,8 +16,7 @@ query = sys.argv[1]
 search_term = sys.argv[2]
 
 queryParams = urlencode({ query : search_term })
-#socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-#socket.socket = socks.socksocket
+
 request = Request(url + queryParams)
 
 marcxml = urlopen(request).read()
