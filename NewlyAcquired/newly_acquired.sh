@@ -27,6 +27,7 @@ errorlog5="/tmp/new_acq_err5_$$.log"
 errorlog6="/tmp/new_acq_err6_$$.log"
 errorlog7="/tmp/new_acq_err7_$$.log"
 mail_list=""
+apikey=""
 
 ${bindir}new_items_analytics_list.py ${config} > ${work}work_file_${todays_date} 2> $errorlog1
 
@@ -74,7 +75,7 @@ fi
 
 if [ -f ${pending} ]; then
     if [ -s ${pending} ]; then
-        cat ${pending} | ${bindir}new_check_pending.py l7xx2bea837c1e0a4ab68d5c23da8cee51ad > ${work}new_pending_${todays_date} 2> ${errorlog5}
+        cat ${pending} | ${bindir}new_check_pending.py ${apikey} > ${work}new_pending_${todays_date} 2> ${errorlog5}
     else
         mutt -s ${pending} -- ${mail_list} <<EOM
 File ${pending} was not created today.
