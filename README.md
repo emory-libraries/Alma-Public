@@ -24,6 +24,6 @@ input: apikey, file of barcodes
 ###sru_search.py
 ####Purpose: retrieve bib xml via the sru server
 input: query parameter (e.g. title) and search string
->$sru_search.py ${queery} ${search_string}
+>$sru_search.py ${query} ${search_string}
 
 -----------------------------------------------
