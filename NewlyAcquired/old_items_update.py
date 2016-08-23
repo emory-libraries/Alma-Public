@@ -3,15 +3,11 @@ from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 import sys
 import xml.etree.ElementTree as elementTree
-import socks
-import socket
 
 #get bib
 from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 
-socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-socket.socket = socks.socksocket
 #get api key as program argument
 
 def api_put(url,apikey,xml_string):
