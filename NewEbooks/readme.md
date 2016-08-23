@@ -36,7 +36,7 @@ input: file of new mmsids, config file with apikey
 
 -------------------------------------------------------------------------------------------------
 #####analytics report
-Bibliographic Details > MMS Id / Portfolio Activation Date > Portfolio Activation Date
+EInventory Bibliographic Details > MMS Id / Portfolio Activation Date > Portfolio Activation Date
 
 Filter: On Portfolio Activation Date add SQL expression
 ```
