@@ -74,6 +74,7 @@ input: file of new mmsids, config file with api key
 #####find file of old items and remove 598 $$a
 this script runs old_items_update.py
 >${bindir}old_items.sh 2> ${errorlog7}
+
 --------------------------------------------------------------------------------------------------
 
 #####analytics report
@@ -84,5 +85,8 @@ Filter: On Item Creation Date is greater tha or equal to add SQL expression
 TIMESTAMPADD(SQL_TSI_DAY, -1, CURRENT_DATE)
 ```
 
-Create a second Physical Items Analysis a Bibliographic Details > MMS Id / Item Creation Date > Item Creation Date / Item Modification Date > Item Modification Date / Physical Item Details > Barcode / Physical Item Details > Process Type / Physical Item Details > Receiving Date / Holding Details > Holding ID / Physical Item Details > Item ID / Filter On MMS Id is based on the result of another analysis / saved analysis file location of first analysis / relationship is equal to any / use values in column MMS Id
+Create a second Physical Items Analysis a Bibliographic Details > MMS Id / Item Creation Date > Item Creation Date / Item Modification Date > Item Modification Date / Physical Item Details > Barcode / Physical Item Details > Process Type / Physical Item Details > Receiving Date / Holding Details > Holding ID / Physical Item Details > Item ID 
+
+Filter On MMS Id is based on the result of another analysis / saved analysis file location of first analysis / relationship is equal to any / use values in column MMS Id
+
 ---------------------------------------------------------------------------------------------------
