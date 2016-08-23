@@ -9,8 +9,6 @@ r"""
 import os
 import sys 
 import re
-import socks
-import socket
 import requests
 import xml.etree.ElementTree as elementTree
 
@@ -99,8 +97,6 @@ def main():
 
   in_string=""
   outcome=1
-  socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-  socket.socket = socks.socksocket
   payload={'apikey':apikey,'path':path,'limit':limit}
   try:
      r=requests.get(url,params=payload)
@@ -147,9 +143,6 @@ def main():
       work_to_do=True
       outcome=1
       while work_to_do:
-        
-         socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-         socket.socket = socks.socksocket
          payload={'apikey':apikey,'token':this_token,'limit':limit}
          try:
             r=requests.get(url,params=payload)
