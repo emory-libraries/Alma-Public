@@ -5,17 +5,12 @@ from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 import sys
 import xml.etree.ElementTree as elementTree
-import socks
-import socket
 
 #get bib
 from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 
 #990036464790302486|22318733790002486|23318733770002486|
-
-socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-socket.socket = socks.socksocket
 
 #mms_id = "9936572720402486"
 #holding_id = "22319416980002486"
