@@ -10,7 +10,6 @@ from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 
 #get api key as program argument
-#l7xx7ed1d73cf63d4105a2cf1df41632344f
 
 def api_put(url,apikey,xml_string):
 
