@@ -16,12 +16,14 @@ See the readme in the folder
 
 ###get_item_from_barcode.py
 ####Purpose: get item xml using a barcode, add an item note to the xml and put the item xml back into Alma
-input: apikey
+input: apikey, file of barcodes
+>$echo ${file_of_barcodes} | get_item_from_barcode.py ${apikey}
 
 -----------------------------------------------
 
 ###sru_search.py
 ####Purpose: retrieve bib xml via the sru server
 input: query parameter (e.g. title) and search string
+>$sru_search.py ${queery} ${search_string}
 
 -----------------------------------------------
