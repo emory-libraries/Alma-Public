@@ -3,18 +3,11 @@ from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 import sys
 import xml.etree.ElementTree as elementTree
-import socks
-import socket
 import re
 
 #get bib
 from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
-
-socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-socket.socket = socks.socksocket
-#get api key as program argument
-#l7xx7ed1d73cf63d4105a2cf1df41632344f
 
 def api_put(url,apikey,xml_string):
 
@@ -60,7 +53,6 @@ def main():
   for line in sys.stdin:
       try:
         mmsId = line.rstrip('\n')
-#url = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/{mms_id}'.replace('{mms_id}',quote_plus('990029398460302486'))
         url = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/{mms_id}'.replace('{mms_id}',quote_plus(mmsId))
         queryParams = '?' + urlencode({ quote_plus('expand') : 'None' ,quote_plus('apikey') : apikey })
         request = Request(url + queryParams)
@@ -84,7 +76,6 @@ def main():
         xml_modified=xml_modified.replace("my_crap", "tag") 
         prolog="<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
         xml_modified=prolog+xml_modified
-#### bernardo end ##
 #        print xml_modified
       except:
         sys.stderr.write("could not update marcxml "+mmsId+"\n")
