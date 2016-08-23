@@ -26,7 +26,7 @@ errorlog4="/tmp/new_acq_err4_$$.log"
 errorlog5="/tmp/new_acq_err5_$$.log"
 errorlog6="/tmp/new_acq_err6_$$.log"
 errorlog7="/tmp/new_acq_err7_$$.log"
-mail_list="acoope5@emory.edu"
+mail_list=""
 
 ${bindir}new_items_analytics_list.py ${config} > ${work}work_file_${todays_date} 2> $errorlog1
 
