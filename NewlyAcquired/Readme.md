@@ -80,13 +80,40 @@ this script runs old_items_update.py
 ###analytics report
 Physical Items Analysis Bibliographic Details > MMS Id / Item Creation Date > Item Creation Date / Item Modification Date > Item Modification Date / Physical Item Details > Barcode / Physical Item Details > Process Type / Physical Item Details > Receiving Date
 
-Filter: On Item Creation Date is greater tha or equal to add SQL expression
 ```
-TIMESTAMPADD(SQL_TSI_DAY, -1, CURRENT_DATE)
+SELECT
+   0 s_0,
+   "Physical Items"."Bibliographic Details"."MMS Id" s_1,
+   "Physical Items"."Item Creation Date"."Item Creation Date" s_2,
+   "Physical Items"."Item Modification Date"."Item Modification Date" s_3,
+   "Physical Items"."Physical Item Details"."Barcode" s_4,
+   "Physical Items"."Physical Item Details"."Process Type" s_5,
+   "Physical Items"."Physical Item Details"."Receiving   Date" s_6
+FROM "Physical Items"
+WHERE
+("Item Creation Date"."Item Creation Date" >= (TIMESTAMPADD(SQL_TSI_DAY, -1, CURRENT_DATE)))
+ORDER BY 1, 2 ASC NULLS FIRST, 3 ASC NULLS FIRST, 4 ASC NULLS FIRST, 5 ASC NULLS FIRST, 6 ASC NULLS FIRST, 7 ASC NULLS FIRST
+FETCH FIRST 250001 ROWS ONLY
 ```
 
 Create a second Physical Items Analysis a Bibliographic Details > MMS Id / Item Creation Date > Item Creation Date / Item Modification Date > Item Modification Date / Physical Item Details > Barcode / Physical Item Details > Process Type / Physical Item Details > Receiving Date / Holding Details > Holding ID / Physical Item Details > Item ID 
 
-Filter On MMS Id is based on the result of another analysis / saved analysis file location of first analysis / relationship is equal to any / use values in column MMS Id
+```
+SELECT
+   0 s_0,
+   "Physical Items"."Bibliographic Details"."MMS Id" s_1,
+   "Physical Items"."Holding Details"."Holding Id" s_2,
+   "Physical Items"."Physical Item Details"."Barcode" s_3,
+   "Physical Items"."Physical Item Details"."Creation Date" s_4,
+   "Physical Items"."Physical Item Details"."Item Id" s_5,
+   "Physical Items"."Physical Item Details"."Modification Date" s_6,
+   "Physical Items"."Physical Item Details"."Process Type" s_7,
+   "Physical Items"."Physical Item Details"."Receiving   Date" s_8
+FROM "Physical Items"
+WHERE
+("Bibliographic Details"."MMS Id" IN (SELECT saw_0 FROM (SELECT "Bibliographic Details"."MMS Id" saw_0, "Item Creation Date"."Item Creation Date" saw_1, "Item Modification Date"."Item Modification Date" saw_2, "Physical Item Details"."Barcode" saw_3, "Physical Item Details"."Process Type" saw_4, "Physical Item Details"."Receiving   Date" saw_5 FROM "Physical Items" WHERE "Item Creation Date"."Item Creation Date" >= (TIMESTAMPADD(SQL_TSI_DAY, -1, CURRENT_DATE))) nqw_1 ))
+ORDER BY 1, 2 ASC NULLS FIRST, 5 ASC NULLS FIRST, 7 ASC NULLS FIRST, 4 ASC NULLS FIRST, 8 ASC NULLS FIRST, 9 ASC NULLS FIRST, 3 ASC NULLS FIRST, 6 ASC NULLS FIRST
+FETCH FIRST 250001 ROWS ONLY
+```
 
 ---------------------------------------------------------------------------------------------------
