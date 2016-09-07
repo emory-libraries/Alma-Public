@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/bin/python
 # -*- coding: utf-8 -*-
 
 r'''Title: marctxt_parser.py
