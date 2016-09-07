@@ -38,8 +38,15 @@ input: file of new mmsids, config file with apikey
 ###analytics report
 EInventory Bibliographic Details > MMS Id / Portfolio Activation Date > Portfolio Activation Date
 
-Filter: On Portfolio Activation Date add SQL expression
 ```
-TIMESTAMPADD(SQL_TSI_DAY, -1, CURRENT_DATE)
+SELECT
+   0 s_0,
+   "E-Inventory"."Bibliographic Details"."MMS Id" s_1,
+   "E-Inventory"."Portfolio Activation Date"."Portfolio Activation Date" s_2
+FROM "E-Inventory"
+WHERE
+(("Portfolio Activation Date"."Portfolio Activation Date" IN (TIMESTAMPADD(SQL_TSI_DAY, -1, CURRENT_DATE))))
+ORDER BY 1, 2 ASC NULLS FIRST, 3 ASC NULLS FIRST
+FETCH FIRST 250001 ROWS ONLY
 ```
 -------------------------------------------------------------------------------------------------
