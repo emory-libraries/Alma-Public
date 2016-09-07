@@ -1,13 +1,32 @@
 #!/bin/python
 # -*- coding: utf-8 -*-
 
-r'''Title: marctxt_parser.py
+r"""Title: marctxt_parser.py
 Purpose: Parse marc.txt files / finite state machine example
-Author: Alex C. (copied from Bernado's sketch)'''
+Author: Alex C. (copied from Bernado's sketch)"""
 
 import sys
 import re
+import socks
+import socket
+from urllib2 import Request, urlopen
+from urllib import urlencode, quote_plus
 
+####check for record with that oclc number in Alma
+def check_oclc_numbers(oclc_no,query):
+    outcome = 1
+    url = "https://na03.alma.exlibrisgroup.com/view/sru/01GALI_EMORY?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma."
+    oclc_no = str(oclc_no)
+    queryParams = urlencode({ query : oclc_no })
+    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
+    socket.socket = socks.socksocket
+    try:
+        request = Request(url + queryParams)
+        result = urlopen(request).read()
+    except:
+        sys.stderr.write("no oclc no" + "\n")
+    return result,0
+    
 def main():
     state = "init"
     rec_delimiter = "****"
