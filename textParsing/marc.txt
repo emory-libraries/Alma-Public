@@ -1,0 +1,373 @@
+*******
+000||01204cam a2200325Ii 4500
+001||ocn936145914
+003||OCoLC
+005||20160721051257.2
+008||160127s2016    enkab         000 0 eng d
+020|  |\pa1473878950
+020|  |\pa9781473878952
+035|  |\pa(OCoLC)936145914
+040|  |\paYDXCP\pbeng\perda\pcYDXCP\pdOCLCQ\pdUAB
+043|  |\pae-uk---\pae-gx---
+049|  |\paEMUA\pb010002975212
+050| 4|\paD772.G7\pbL36 2016
+100|1 |\paLandsborough, Gordon,\peauthor.
+245|14|\paThe Battle of the River Plate :\pbthe first naval battle of the Second World War /\pcGordon Landsborough.
+264| 1|\paS. Yorkshire :\pbFrontline Books,\pc2016.
+300|  |\pa144 pages :\pbillustrations, maps ;\pc22 cm
+336|  |\patext\pbtxt\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+500|  |\pa"First published in 1956 by Panther Books, London"--Title page verso.
+610|20|\paAdmiral Graf Spee (Battleship)
+650| 0|\paRiver Plate, Battle of the, 1939.
+650| 0|\paWorld War, 1939-1945\pxNaval operations, German.
+650| 0|\paWorld War, 1939-1945\pxNaval operations, British.
+980|  |\pa20160831\pb34.95\pd766042\pe34.95\pf99968060368\pg1\ph12818752
+981|  |\pbALAT HIS B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||01589cam a2200385 i 4500
+001||ocn928404599
+003||OCoLC
+005||20160125095600.0
+008||151109s2015    enka     b    001 0 eng d
+020|  |\pa9781443881005\pqhardback
+020|  |\pa1443881007\pqhardback
+020|  |\pz9781443884983\pqelectronic book
+020|  |\pz1443884987\pqelectronic book
+035|  |\pa(OCoLC)928404599
+043|  |\pae-po---\pae------
+040|  |\paCDX\pbeng\perda\pcCDX\pdSTF\pdOCLCO\pdNhCcYBP
+049|  |\paEMUA\pb010002975214
+050| 4|\paDP638\pb.V54 2015
+082|04|\pa946.9033\p223
+245|00|\paViews on eighteenth century culture :\pbdesign, books and ideas /\pcedited by Leonor Ferrão and Luís Manuel A.V. Bernardo.
+264| 1|\paNewcastle upon Tyne :\pbCambridge Scholars Publishing,\pc2015.
+300|  |\pavii, 408 pages :\pbillustrations (some color) ;\pc22 cm
+336|  |\patext\pbtxt\p2rdacontent
+336|  |\pastill image\pbsti\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+504|  |\paIncludes bibliographical references and index.
+650| 0|\paEnlightenment\pzPortugal.
+651| 0|\paPortugal\pxHistory\pyJohn V, 1706-1750.
+651| 0|\paEurope\pxIntellectual life\py18th century.
+700|1 |\paFerrão, Leonor,\peeditor.
+700|1 |\paBernardo, Luís Manuel A. V.,\peeditor.
+776|08|\piOnline version:\ptViews on eighteenth century culture : design, books and ideas\pdNewcastle upon Tyne : Cambridge Scholars Publishing, 2015\pz9781443884983\pw(OCoLC)926093004
+980|  |\pa20160831\pb98.95\pd766042\pe82.13\pf99967321294\pg1\ph12614586
+981|  |\pbHIST EUR B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||02434cam a2200385Ia 4500
+001||ocn920869798
+003||OCoLC
+005||20160304063852.6
+008||150909s2015    enka     b    001 0 eng d
+040|  |\paYDXCP\pbeng\pcYDXCP\pdCDX\pdOCLCO\pdUAB\pdOCLCO\pdOCLCF\pdOCLCO\pdZCU\pdOCLCQ\pdNZAUC
+020|  |\pa1781593396
+020|  |\pa9781781593394
+035|  |\pa(OCoLC)920869798
+043|  |\pae-uk---
+049|  |\paEMUA\pb010002975211
+050| 4|\paGT730\pb.B67 2015
+082|04|\pa391/.00941\p223
+100|1 |\paBowman, Karen\pq(Karen Elizabeth)
+245|10|\paCorsets and codpieces :\pba social history of outrageous fashion /\pcby Karen Bowman.
+246|14|\paCorsets & codpieces
+260|  |\paBarnsley, South Yorkshire :\pbPen & Sword History,\pc2015.
+300|  |\pavii, 166 pages :\pbillustrations (some color) ;\pc25 cm
+336|  |\patext\pbtxt\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+504|  |\paIncludes bibliographical references (pages 160-161) and index.
+520|  |\paHave you ever wondered why we wear the type of clothes we do? Packed with outlandish outfits, this exciting history of British fashion trends reveals the flamboyant fashions adopted (and discarded) by our ancestors. In the days before cosmetic surgery, people used bum rolls and bombastic breeches to augment their figures; painted their faces with poisonous concoctions; and doused themselves with scent to cover body odour. Take a fresh look at history's hidden fashion disasters and discover the stories behind historical garments: * How removing a Medieval woman's headdress could reveal her as a harlot * Why Tudor men traded in their over-sized codpieces for corsets * The ridiculous roof-raising results of four-foot high Georgian headgear * How the crinoline caused a spate of shoplifting among Victorian ladies Karen Bowman charts our sartorial history from the animal skins first used to cover our modesty and show off hunting skills, right up to the 20th century drive for practicality and comfort.
+650| 0|\paClothing and dress\pzGreat Britain\pxHistory.
+650| 0|\paFashion\pzGreat Britain\pxHistory.
+650| 7|\paClothing and dress.\p2fast\p0(OCoLC)fst00864680
+650| 7|\paFashion.\p2fast\p0(OCoLC)fst00921600
+651| 7|\paGreat Britain.\p2fast\p0(OCoLC)fst01204623
+655| 7|\paHistory.\p2fast\p0(OCoLC)fst01411628
+980|  |\pa20160831\pb23.80\pd766042\pe23.80\pf99968071580\pg1\ph12540873
+981|  |\pbHIST US B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||02274cam a2200445 i 4500
+001||ocn921240005
+003||OCoLC
+005||20160420052219.9
+008||150810s2016    nyu           001 0deng  
+010|  |\pa  2015027590
+040|  |\paDLC\pbeng\perda\pcDLC\pdYDXCP\pdBTCTA\pdBDX\pdOCLCF\pdFOLLT\pdVP@\pdCGP\pdOCLCO
+019|  |\pa911594052\pa933727019\pa943748108
+020|  |\pa9780804139250
+020|  |\pa0804139253
+020|  |\pz9780804139267 (eBook)
+035|  |\pa(OCoLC)921240005\pz(OCoLC)911594052\pz(OCoLC)933727019\pz(OCoLC)943748108
+042|  |\papcc
+043|  |\pan-us---
+049|  |\paEMUA\pb010002975206
+050|00|\paGV885.514\pb.A37 2016
+082|00|\pa796.323/64\p223
+100|1 |\paAbrams, Jonathan P. D.,\pd1984-
+245|10|\paBoys among men :\pbhow the prep-to-pro generation redefined the NBA and sparked a basketball revolution /\pcJonathan Abrams.
+250|  |\paFirst Edition.
+264| 1|\paNew York :\pbCrown Archetype,\pc[2016]
+300|  |\pa326 pages ;\pc24 cm
+336|  |\patext\pbtxt\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+500|  |\paIncludes index.
+520|  |\pa"When Kevin Garnett shocked the world by announcing that he would not be attending college--as young basketball prodigies were expected to do--but instead enter the 1995 NBA draft directly from high school, he blazed a trail for a generation of teenage basketball players to head straight for the pros. That trend would continue until the NBA instituted an age limit in 2005, requiring all players to attend college or another developmental program for at least one year ... [This book] goes behind the scenes and draws on hundreds of first-hand interviews to paint ... portraits of the most pivotal figures and events during this time"--Amazon.com.
+610|20|\paNational Basketball Association.
+610|27|\paNational Basketball Association.\p2fast\p0(OCoLC)fst00516112
+650| 0|\paBasketball draft.
+650| 0|\paBasketball players\pxRecruiting\pzUnited States.
+650| 7|\paBasketball draft.\p2fast\p0(OCoLC)fst01741532
+650| 7|\paBasketball players\pxRecruiting.\p2fast\p0(OCoLC)fst00828287
+651| 7|\paUnited States.\p2fast\p0(OCoLC)fst01204155
+980|  |\pa20160831\pb28.00\pd766042\pe23.24\pf99968071582\pg1\ph12485067
+981|  |\pbAFAM GEN B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||01628cam a22004574i 4500
+001||ocn942600065
+003||OCoLC
+005||20160607045204.8
+008||160225s2016    enka     b    001 0 eng  
+010|  |\pa  2015038831
+040|  |\paDLC\pbeng\perda\pcDLC\pdYDX\pdYDXCP\pdCDX
+020|  |\pa9783034319058 (alk. paper)
+020|  |\pa3034319053 (alk. paper)
+020|  |\pa9783035308082 (ebook)
+020|  |\pa303530808X (ebook)
+035|  |\pa(OCoLC)942600065
+042|  |\papcc
+043|  |\pae-uk-en\pae-uk---
+049|  |\paEMUA\pb010002975209
+050|00|\paGV943.6.M43\pbC35 2016
+082|00|\pa796.33409424\p223
+100|1 |\paCampbell, Paul Ian,\peauthor.
+245|10|\paFootball, ethnicity and community :\pbthe life of an African-Caribbean football club /\pcPaul Ian Campbell.
+264| 1|\paOxford ;\paNew York :\pbPeter Lang,\pc[2016]
+300|  |\paxvii, 271 pages :\pbillustrations ;\pc22 cm.
+336|  |\patext\p2rdacontent
+337|  |\paunmediated\p2rdamedia
+338|  |\pavolume\p2rdacarrier
+490|1 |\paSport, history, and culture ;\pvvol. 6
+504|  |\paIncludes bibliographical references (pages 241-261) and index.
+610|20|\paMeadebrook Cavaliers Football Club.
+650| 0|\paSoccer\pzEngland\pzMidlands.
+650| 0|\paSoccer players\pzEngland.
+650| 0|\paSoccer players\pzGreat Britain.
+650| 0|\paAthletes, Black\pzGreat Britain.
+650| 0|\paSoccer\pxSocial aspects\pzGreat Britain.
+650| 0|\paRacism\pzGreat Britain.
+651| 0|\paGreat Britain\pxRace relations.
+830| 0|\paSport, history, and culture ;\pvv. 6.
+980|  |\pa20160831\pb72.95\pd766042\pe72.95\pf99968080602\pg1\ph100616468
+981|  |\pbAFAM GEN B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||02303cam a2200445 i 4500
+001||ocn910009390
+003||OCoLC
+005||20160206070640.3
+008||150512s2016    enk      b    001 0deng  
+010|  |\pa  2015019031
+040|  |\paDLC\pbeng\perda\pcDLC\pdYDX\pdYDXCP\pdBTCTA\pdOCLCO\pdOCLCQ
+020|  |\pa9781472438508\pq(hardcover ;\pqalk. paper)
+020|  |\pa1472438507\pq(hardcover ;\pqalk. paper)
+020|  |\pz9781472438515\pq(ebook)
+020|  |\pz1472438515\pq(ebook)
+020|  |\pz9781472438522\pq(epub)
+020|  |\pz1472438523\pq(epub)
+035|  |\pa(OCoLC)910009390
+042|  |\papcc
+043|  |\pae-fr---
+049|  |\paEMUG\pb010002975210
+050|00|\paML410.G83\pbA9 2016
+082|00|\pa782.1092\p223
+100|1 |\paArnold, R. J.\pq(Robert James),\pd1971-\peauthor.
+245|10|\paGrétry's operas and the French public :\pbfrom the old regime to the restoration /\pcby R.J. Arnold.
+264| 1|\paFarnham, Surrey, England ;\paBurlington, VT :\pbAshgate Publishing,\pc[2016]
+300|  |\pa232 pages ;\pc25 cm.
+336|  |\patext\pbtxt\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+490|1 |\paAshgate interdisciplinary studies in opera
+504|  |\paIncludes bibliographical references and index.
+505|0 |\paIn the bosom of one's family : Grétry's earliest opéra comiques and their audiences -- If only that heap of erudition could provide us with a melody : Grétry's conception of the role and powers of the composer -- Those who listen with a sensitive soul and practised ears : the formation of musical taste in the ancien régime -- Always a friend of liberty : the fortunes of Grétry's career and reputation in the revolution -- The long-dispersed debris of French theatre is being reassembled : Grétry and his public in post-revolutionary France -- We are nothing but a single distraught family : mourning and mythologising after Grétry's death.
+600|10|\paGrétry, André-Ernest-Modeste,\pd1741-1813.\ptOperas.
+600|10|\paGrétry, André-Ernest-Modeste,\pd1741-1813\pxDeath and burial.
+650| 0|\paOpera\pzFrance\py18th century.
+650| 0|\paOpera\pzFrance\py19th century.
+830| 0|\paAshgate interdisciplinary studies in opera.
+980|  |\pa20160831\pb149.95\pd766042\pe149.95\pf99968058308\pg1\ph12486383
+981|  |\pbHANSARD B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||01642nam a2200421 i 4500
+001||ocn931642667
+003||OCoLC
+005||20160411182435.4
+008||160411s2015    gw a     bc   000 0 eng d
+040|  |\paNhCcYBP\pbeng\perda\pcNhCcYBP
+019|  |\pa922562700
+020|  |\pa9783954761258\pqpaperback
+020|  |\pa3954761254\pqpaperback
+035|  |\pa(OCoLC)931642667\pz(OCoLC)922562700
+049|  |\paEMUA\pb010002975213
+050| 4|\paNB198.5.A2\pbA1213 2015
+082|04|\pa735/.23047\p223
+245|00|\pa24h Skulptur :\pbnotes on time sculptures /\pcHgg. Ursula Ströbele, Andreas Greiner, Jan-Philipp Sexauer ; texte, Andreas Greiner, Ursula Ströbele, Julia Wallner.
+246|30|\paNotes on time sculptures
+264| 1|\paBerlin :\pbDistanz,\pc[2015]
+300|  |\pa94 pages ;\pc24 cm
+336|  |\patext\pbtxt\p2rdacontent
+336|  |\pastill image\pbsti\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+546|  |\paIn English and German.
+500|  |\paCatalog of an exhibition held at the Galerie Sexauer, November 15-16, 2014.
+504|  |\paIncludes bibliographical references.
+650| 0|\paSculpture, Modern\py20th century\pvExhibitions.
+650| 0|\paSculpture, Modern\py21st century\pvExhibitions.
+650| 0|\paTime in art\pvExhibitions.
+650| 0|\paConceptual art\pvExhibitions.
+700|1 |\paStröbele, Ursula,\pd1961-\peeditor,\pecontributor.
+710|2 |\paGalerie Sexauer,\pehost institution.
+730|02|\piContains (expression)\pa24h Skulptur.
+730|02|\piContains (expression)\pa24h Skulptur.\plEnglish
+980|  |\pa20160831\pb40.00\pd766042\pe36.80\pf99968094292\pg1\ph12620777
+981|  |\pbAH GEN B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||02156cam a2200481Ii 4500
+001||ocn926736677
+003||OCoLC
+005||20151111055128.3
+008||150325s2015    weaah    b    000 0 eng d
+040|  |\paYDXCP\pbeng\perda\pcYDXCP\pdOCLCO\pdXII
+020|  |\pa9781925163148\pqhardcover
+020|  |\pa1925163148\pqhardcover
+035|  |\pa(OCoLC)926736677
+049|  |\paEMUA\pb010002975215
+050| 4|\paND2920\pb.I45 2015
+082|04|\pa745.67074\p223
+245|03|\paAn illumination :\pbthe Rothschild prayer book and other works from the Kerry Stokes Collection c. 1280-1685 /\pcintroduction by Margaret M. Manion.
+246|30|\paRothschild prayer book and other works from the Kerry Stokes Collection c. 1280-1685
+246|18|\paIllumination: the Rothschild prayer book and other works c. 1280-1685
+264| 1|\paWest Perth, Western Australia :\pbAustralian Capital Equity Pty. Limited,\pc2015.
+300|  |\pa214 pages :\pbcolor illustrations, facsimiles ;\pc31 cm
+336|  |\patext\pbtxt\p2rdacontent
+336|  |\pastill image\pbsti\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+585|  |\paPublished in association with the exhibition at The Ian Potter Museum of Art, the University of Melbourne, 28 August to 15 November 2015.
+504|  |\paIncludes bibliographical references.
+600|10|\paStokes, Kerry\pxArt collections.
+630|00|\paRothschild prayer book.
+650| 0|\paIllumination of books and manuscripts, Medieval\pvExhibitions.
+650| 0|\paIllumination of books and manuscripts, Renaissance\pvExhibitions.
+650| 0|\paIllustrated books\pxHistory\py15th and 16th centuries.
+650| 0|\paPrayer books\pvExhibitions.
+650| 0|\paBooks of hours\pvExhibitions.
+650| 0|\paPainting, Medieval\pvExhibitions.
+650| 0|\paPainting\py16th century\pvExhibitions.
+650| 0|\paSculpture, Medieval\pvExhibitions.
+650| 0|\paSculpture\py16th century\pvExhibitions.
+653|  |\paAustralian
+700|1 |\paManion, Margaret M.,\pewriter of introduction.
+710|2 |\paIan Potter Museum of Art,\pehost institution.
+980|  |\pa20160831\pb70.23\pd766042\pe70.23\pf99966841756\pg1\ph12405903
+981|  |\pbAH GEN B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||03035cam a2200469 i 4500
+001||ocn928888870
+003||OCoLC
+005||20160806043150.2
+008||151110s2016    gw       b    101 0 eng  
+010|  |\pa  2015040879
+040|  |\paDLC\pbeng\perda\pcDLC\pdBTCTA\pdYDXCP\pdOCLCF\pdOHX\pdAZS\pdCDX
+020|  |\pa9783110442229 (hardcover : acid-free paper)
+020|  |\pa3110442221 (hardcover : acid-free paper)
+035|  |\pa(OCoLC)928888870
+042|  |\papcc
+049|  |\paEMUA\pb010002975208
+050|00|\paP40.5.L38\pbA87 2016
+072| 7|\paP\p2lcco
+082|00|\pa306.44\p223
+245|00|\paAspects of (Post)colonial linguistics :\pbcurrent perspectives and new approaches /\pcedited by Daniel Schmidt-Brücken, Susanne Schuster and Marina Wienberg.
+264| 1|\paBerlin ;\paBoston :\pbDe Gruyter,\pc[2016]
+300|  |\paix, 273 pages ;\pc24 cm.
+336|  |\patext\p2rdacontent
+337|  |\paunmediated\p2rdamedia
+338|  |\pavolume\p2rdacarrier
+490|1 |\paKoloniale und Postkoloniale Linguistik / Colonial and Postcolonial Linguistics ;\pvvolume 9
+500|  |\pa"The contributions of this volume are selected, peer-reviewed papers which were partly invited and partly given at the First Bremen Conference on Colonial and Postcolonial Linguistics, held in September 2013."
+504|  |\paIncludes bibliographical references and index.
+505|1 |\paArabic language guides written for the British Army during the British occupation of Egypt, 1882-1922 / Liesbeth Zack -- Baku Russian : colonial heritage in a post-colonial era / Murad Sleymanov -- Postcolonial language ideologies : writing in Chabacano / Eeva Sippola -- Hybridized discourse markers in Cameroonian French? The example of déjà / Martina Drescher -- Kolonial-Deutsch and Français Tirailleur / Andrei A. Avram -- The status of Dutch in post-colonial Suriname / Janneke Diepeveen and Matthias Hüning -- From Accra to Nairobi : the use of pluralized mass nouns in east and west African postcolonial Englishes / Susanne Mohr -- A colonial grammar of arte / Astrid Alexander-Bakkerus -- The role of domain in face-to-face contact in borrowing / Kzuko Matsumoto -- Representing bicultural knowledge systems and epistemic decolonization / Norbert Schaffeld -- Moanus or Titan? On Ludwig Cohn's amateur linguistics / Marina Wienberg.
+650| 0|\paLanguages in contact.
+650| 0|\paPostcolonialism.
+650| 0|\paHistorical linguistics.
+650| 7|\paHistorical linguistics.\p2fast\p0(OCoLC)fst00958134
+650| 7|\paLanguages in contact.\p2fast\p0(OCoLC)fst00992434
+650| 7|\paPostcolonialism.\p2fast\p0(OCoLC)fst01073032
+700|1 |\paSchmidt-Brücken, Daniel,\peeditor.
+700|1 |\paSchuster, Susanne,\pd1965-\peeditor.
+700|1 |\paWienberg, Marina,\peeditor.
+776|08|\piOnline version:\ptAspects of (Post)colonial linguistics\pdBerlin ; Boston : De Gruyter, [2016]\pz9783110436907\pw(DLC) 2015044322
+830| 0|\paKoloniale und postkoloniale Linguistik ;\pvBd. 9.
+980|  |\pa20160831\pb140.00\pd766042\pe140.00\pf99968054091\pg1\ph12732144
+981|  |\pbHUM LING B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
+*******
+000||01997cam a2200433Ia 4500
+001||ocn927294030
+003||OCoLC
+005||20160525161552.7
+008||151030s2015    gw a     bc   000 0 eng d
+040|  |\paOHX\pbeng\pcOHX\pdOCLCO\pdJPG\pdOCLCF\pdOCLCO\pdZCU\pdOCLCQ\pdNhCcYBP
+020|  |\pa9783735601278\pq(English edition - Kerber ;\pqhd. bd.)
+020|  |\pa3735601278\pq(English edition - Kerber ;\pqhd. bd.)
+020|  |\pa9782980802072\pq(English edition - Le Mois de la Photo a Montreal ;\pqhd. bd.)
+020|  |\pa2980802077\pq(English edition - Le Mois de la Photo a Montreal ;\pqhd. bd.)
+024|3 |\pa9783735601278
+035|  |\pa(OCoLC)927294030
+049|  |\paEMUA\pb010002975207
+050| 4|\paTR646.C22\pbM66 2015
+082|04|\pa779.074/71428\p223
+245|04|\paThe post-photographic condition :\pbLe Mois de la Photo a Montreal, international biennial of the contemporary image /\pcedited by Joan Fontcuberta ; translators, Don Pistolesi [and three others].
+264| 1|\paBielefeld, Germany :\pbKerber,\pc[2015]
+300|  |\pa174 pages :\pbchiefly illustrations (some color) ;\pc26 cm.
+336|  |\patext\pbtxt\p2rdacontent
+336|  |\pastill image\pbsti\p2rdacontent
+337|  |\paunmediated\pbn\p2rdamedia
+338|  |\pavolume\pbnc\p2rdacarrier
+490|1 |\paKerber photo art
+500|  |\paExhibition catalog.
+500|  |\paOn the occasion of an the event "Le Mois de la Photo a Montreal- 14th edition": The Post-Photographic Condition, September 10 - October 11, 2015.
+504|  |\paIncludes bibliographical references.
+650| 0|\paPhotography, Artistic\py21st century\pvExhibitions.
+650| 7|\paPhotography, Artistic.\p2fast\p0(OCoLC)fst01061964
+648| 7|\pa2000 - 2099\p2fast
+655| 7|\paExhibition catalogs.\p2fast\p0(OCoLC)fst01424028
+700|1 |\paFontcuberta, Joan,\pd1955-\peeditor.
+711|2 |\paMois de la photo à Montréal\pn(14th :\pd2015 :\pcMontréal, Québec)
+830| 0|\paKerber photoart.
+980|  |\pa20160831\pb60.51\pd766042\pe60.51\pf99968134005\pg1\ph12804645
+981|  |\pbAH GEN B
+940|  |\paPROMPTCATF
+945|  |\pa20160902\p2EMU
