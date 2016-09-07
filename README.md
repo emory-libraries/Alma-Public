@@ -14,6 +14,11 @@ See the readme in the folder
 
 -----------------------------------------------
 
+###textParsing
+See the readme in the folder
+
+------------------------------------------------
+
 ###get_item_from_barcode.py
 ####Purpose: get item xml using a barcode, add an item note to the xml and put the item xml back into Alma
 input: apikey, file of barcodes
