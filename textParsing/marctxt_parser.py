@@ -7,23 +7,7 @@ Author: Alex C. (copied from Bernado's sketch)"""
 
 import sys
 import re
-from urllib2 import Request, urlopen
-from urllib import urlencode, quote_plus
 
-####check for record with that oclc number in Alma
-def check_oclc_numbers(oclc_no,query):
-    insitution = [] #enter institution code
-    outcome = 1
-    url = "https://na03.alma.exlibrisgroup.com/view/sru/" + institution + "?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma."
-    oclc_no = str(oclc_no)
-    queryParams = urlencode({ query : oclc_no })
-    try:
-        request = Request(url + queryParams)
-        result = urlopen(request).read()
-    except:
-        sys.stderr.write("no oclc no" + "\n")
-    return result,0
-    
 def main():
     state = "init"
     rec_delimiter = "****"
