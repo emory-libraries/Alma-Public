@@ -1,13 +1,5 @@
 #!/bin/bash
 
-alma_environ="/alma/config/environ"
-. ${alma_environ}  # include environment file
-# export all of the environ variables to my children
-for env_var in $(cat ${alma_environ} | awk -F'=' '{print $1}')
-do
-  export ${env_var}
-done
-
 bin_dir="/alma/bin/"
 config="/alma/config/produce_deleted_records.cfg"
 config2="/alma/config/produce_withdrawn_records.cfg"
