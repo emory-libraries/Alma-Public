@@ -3,14 +3,6 @@
 #Purpose: run scripts to add and remove 598 $$aNEW
 #Date: 08/04/2016
 
-alma_environ="/alma/config/environ"
-. ${alma_environ}  # include environment file
-# export all of the environ variables to my children
-for env_var in $(cat ${alma_environ} | awk -F'=' '{print $1}')
-do
-  export ${env_var}
-done
-
 config="/alma/config/produce_new_list.cfg"
 config2="/alma/config/update_new_books.cfg"
 new_titles="/alma/integrations/new_books/primo/new_titles/"
