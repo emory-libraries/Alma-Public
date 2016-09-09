@@ -5,7 +5,13 @@
 ----------------------------------------------
 
 ###DedupLoadFiles
-See the readme file in the folder
+See the readme in the folder
+
+-----------------------------------------------
+
+###lsc_git_journals
+
+See the readme in the folder
 
 -------------------------------------------------
 
