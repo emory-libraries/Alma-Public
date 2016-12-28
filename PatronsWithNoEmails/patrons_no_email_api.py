@@ -1,4 +1,4 @@
-#!/opt/rh/python27/root/usr/bin/python
+#!/usr/bin/python
 '''
 Title: Identify Proxy Users
 Purpose: produce a report of Alma patrons with no email address
