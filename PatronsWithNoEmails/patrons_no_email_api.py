@@ -109,8 +109,6 @@ def main():
         configuration.close()
     except:
         sys.stderr.write("could not apply regex." + "\n")
-    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-    socket.socket = socks.socksocket
     try:
         queryParams = '?' + urlencode({ quote_plus('path') : path ,quote_plus('apikey') : apikey ,quote_plus('limit') : limit })
         request = Request(url + queryParams)
