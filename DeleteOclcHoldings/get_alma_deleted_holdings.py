@@ -63,13 +63,11 @@ def get_item_info(rows,id_list):
 def check_oclc_numbers(id,query):
     outcome = 1
     id_check = "okay"
-    url = "https://na03.alma.exlibrisgroup.com/view/sru/01GALI_EMORY?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma."
+    url = "https://na03.alma.exlibrisgroup.com/view/sru/[institutionId]?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma."
     oclc_no = id.split("|")
     oclc_no = oclc_no[1]
     oclc_no = str(oclc_no)
     queryParams = urlencode({ query : oclc_no })
-    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-    socket.socket = socks.socksocket
     try:
         request = Request(url + queryParams)
         result = urlopen(request).read()
@@ -111,8 +109,6 @@ def main():
 
   in_string=""
   outcome=1
-  socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-  socket.socket = socks.socksocket
   payload={'apikey':apikey,'path':path,'limit':limit}
   sys.stderr.write("analytics path:"+str(path)+"\n")
   try:
@@ -166,9 +162,6 @@ def main():
       work_to_do=True
       outcome=1
       while work_to_do:
-        
-         socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-         socket.socket = socks.socksocket
          payload={'apikey':apikey,'token':this_token,'limit':limit}
          try:
             r=requests.get(url,params=payload)
