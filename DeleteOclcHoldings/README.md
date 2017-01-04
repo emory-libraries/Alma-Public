@@ -13,3 +13,19 @@ added to crontab
 
 -------------------------------------------------------
 
+###get Alma MMSIds and OCLC numbers API
+####Purpose: retrieve Alma MMSIds and OCLC number from Analytics report for Yesterday's deletes via an API call and check via a 
+####SRU call that the bib record is no longer in Alma by checking for the OCLC number
+
+input = config file with:
+
+'''
+url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/analytics/reports
+path=[path of the analytics report]
+apikey=[your apikey]
+limit=1000
+'''
+
+>${bindir}get_alma_deleted_holdings.py
+
+------------------------------------------------------------
