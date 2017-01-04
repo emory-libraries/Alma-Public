@@ -14,7 +14,8 @@ added to crontab
 -------------------------------------------------------
 
 ###get Alma MMSIds and OCLC numbers API
-####Purpose: retrieve Alma MMSIds and OCLC number from Analytics report for Yesterday's deletes via an API call and check via a SRU call that the bib record is no longer in Alma by checking for the OCLC number
+#####Purpose: retrieve Alma MMSIds and OCLC number from Analytics report for Yesterday's deletes via an API call and check via a SRU call that the bib record is no longer in Alma by checking for the OCLC number
+#####Dependencies: Relies on Analytics reports based on these queries [1_days_deleted.sql]( Alma-Public/DeleteOclcHoldings/1_days_deleted.sql)
 
 input = config file with:
 
