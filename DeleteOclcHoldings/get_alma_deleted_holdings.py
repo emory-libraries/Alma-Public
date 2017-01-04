@@ -9,8 +9,6 @@ import os
 import sys
 import random
 import re
-import socks
-import socket
 import requests
 import xml.etree.ElementTree as elementTree
 import datetime as dt
