@@ -1,4 +1,5 @@
 #Delete OCLC Holdings
+####Authors: Alex Cooper, Bernardo Gomez, Lisa Hamlet
 ####python version 2.7.5
 ####bash version 4.1.2(1)
 ####Purpose: Delete OCLC holdings for deleted and withdrawn bibliographic records
