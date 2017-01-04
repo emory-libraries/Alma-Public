@@ -19,12 +19,12 @@ added to crontab
 
 input = config file with:
 
-'''
+```
 url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/analytics/reports
 path=[path of the analytics report]
 apikey=[your apikey]
 limit=1000
-'''
+```
 
 >${bindir}get_alma_deleted_holdings.py
 
