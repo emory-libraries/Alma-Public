@@ -168,8 +168,8 @@ done
 ###### begin global variables ######
 exp_file=/alma/bin
 expect_err=/tmp/genybpsr_exp1
-loginID=emory 
-pass=J8yana
+loginID=[login] 
+pass=[password]
 mode=bin
 errors=/tmp/gengobi.mail.error$$
 archivedir=/alma/integrations/vendors/ybp/univ/shelf_ready/archive 
