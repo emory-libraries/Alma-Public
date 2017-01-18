@@ -27,6 +27,33 @@ apikey=[your apikey]
 limit=1000
 ```
 
->${bindir}get_alma_deleted_holdings.py
+output = OCLC numbers for holding to be removed and report of OCLC numbers that are still in Alma and need to be checked by staff
+
+>${bindir}get_alma_deleted_holdings.py ${config}
 
 ------------------------------------------------------------
+
+###remove OCLC holdings
+
+input = list of OCLC numbers + config file with:
+
+```
+url=https://worldcat.org/ih/
+clientId=[your client id]
+secret=[your secret key]
+http_method=DELETE
+oclc_curl=www.oclc.org
+port=443
+path=wskey/
+principalID=[your principal id]
+principal_namespace=urn:oclc:wms:da
+classification_scheme=LibraryOfCongress
+institution_id=[your 3 digit institution id]
+library_code=[your 4 character library code]
+```
+
+output = API response
+
+>${bindir}oclc_delete_holdings.py ${config}
+
+-------------------------------------------------
