@@ -19,8 +19,7 @@ log_parsed2="/alma/integrations/oclc/delete/work/delete_oclc_log2.txt"
 results1="i/alma/integrations/oclc/delete/work/delete_oclc_results1.txt"
 results2="/alma/integrations/oclc/delete/work/delete_oclc_results2.txt"
 oclc_api_log="/alma/integrations/oclc/delete/log/oclc_api_$$"
-#mail_list="acoope5@emory.edu egrant7@emory.edu"
-mail_list="acoope5@emory.edu bgomez@emory.edu"
+mail_list=""
 dow=$(date +%u)
 
 ####unset holdings for deleted titles
