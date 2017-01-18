@@ -1,0 +1,39 @@
+#!/usr/bin/expect -f
+#
+set	timeout		120
+log_user	0
+exp_internal	1
+append mail_list "sirsi"
+spawn	ftp  ftp.ybp.com 
+set	match_max	1000
+
+set	timeout		60 
+expect {
+	-ex "Name (" {send "[lindex $argv 2]\r" }
+	timeout	{send_error "TIMEOUT1\n"; close; exit 101}
+}
+expect {
+	-ex "Password:" {sleep 1; send "[lindex $argv 3]\r"}
+	timeout	{send_error "TIMEOUT2\n"; close; exit 102}
+}
+expect {
+	-ex "\n230 " {sleep 1; send "cd [lindex $argv 4]\r" }
+	-ex "\n530 " {sleep 1; send_error "bad credentials\n" ; close; exit 103}
+	timeout	{send_error "TIMEOUT3\n"; close; exit 103}
+}
+expect {
+	-ex "\n250 " {sleep 1; send "bin\r" }
+	-ex "\n550 " {send_error "directory not found\n"; sleep 1; close; exit 108 }
+	timeout	{send_error "TIMEOUT4\n"; close; exit 104}
+}
+set	timeout		120
+expect {
+	-ex "\n200 " {sleep 1; send "get [lindex $argv 0] [lindex $argv 1]/[lindex $argv 0]\r" }
+	timeout	{send_error "TIMEOUT5\n"; close; exit 105}
+}
+expect {
+	-ex "\n226 " {sleep 1; send "quit\r"; close; exit 0}
+	-ex "\n550 " {sleep 1; send "quit\r"; close; exit 106}
+	timeout	{send_error "TIMEOUT6\n";  close; exit 107}
+}
+exit 0
