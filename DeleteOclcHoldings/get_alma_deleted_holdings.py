@@ -1,7 +1,7 @@
-#!/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 r"""
-   Author: Alex Cooper & Bernardo Gomez
+   Author: Alex Cooper, Bernardo Gomez
    Date: August, 2016
    Purpose: get oclc ids of deleted/withdrawn alma records
 """
@@ -61,7 +61,7 @@ def get_item_info(rows,id_list):
 def check_oclc_numbers(id,query):
     outcome = 1
     id_check = "okay"
-    url = "https://na03.alma.exlibrisgroup.com/view/sru/[institutionId]?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma."
+    url = "https://na03.alma.exlibrisgroup.com/view/sru/01GALI_EMORY?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma."
     oclc_no = id.split("|")
     oclc_no = oclc_no[1]
     oclc_no = str(oclc_no)
@@ -224,10 +224,61 @@ def main():
              if no_records == str(0):
 #                 print str(id.split("|")[0])
                  oclc_row = str(id.split("|")[0])
-                 oclc_id.append(oclc_row)
+                 oclc_id.append(oclc_row + "\n")
              else:
-                 oclc_row = str(id.split("|")[1])
-                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                 try:
+                     record = tree.findall("records/record/recordData/record")
+                 except:
+                     sys.stderr.write("could not get records" + "\n")
+                 try:
+                     for r in record:
+                         try:
+                             datafield = r.findall("datafield")
+                         except:
+                             sys.stderr.write("could not get datafield." + "\n")
+                         for df in datafield:
+                             try:
+                                 holding = df.get("tag")
+                             except:
+                                 sys.stderr.write("could not get tags" + "\n")
+                             if holding == "AVA":
+                                 try:
+                                     subfield = df.findall("subfield")
+                                 except:
+                                     sys.stderr.write("could not get subfields" + "\n")
+####                             check for items held by library
+                                 for sf in subfield:
+                                     for k in sf.attrib.keys():
+                                         if sf.get(k) == "b":
+                                             if sf.text == "UNIV":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "BUS":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "CHEM":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "MUSME":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             else:
+                                                 oclc_row = str(id.split("|")[0])
+                                                 oclc_id.append(oclc_row + "\n")
+####                         check for ebook holdings
+                             elif holding == "AVE":
+                                 try:
+                                     id = id.strip( 'ocm' )
+                                     id = id.strip( 'ocn' )
+                                     id = id.strip( '(OCoLC)' )
+                                     oclc_row = str(id.split("|")[0])
+                                     oclc_id.append(oclc_row + "\n")
+                                     for oclc in oclc_id:
+                                         sys.stdout.write(oclc) 
+                                 except:
+                                     sys.stderr.write("could not parse AVE" + "\n")
+                 except:
+                     sys.stderr.write("could not get record" + "\n")
          elif types == "withdrawn":
              if no_records == str(1):
 #                 print str(id.split("|")[0])
@@ -236,8 +287,11 @@ def main():
              elif no_records > str(1):
                  oclc_row = str(id.split("|")[1])
                  sys.stderr.write(oclc_row + " can be found in more than one record in Alma" + "\n")
+             elif no_records == str(0):
+                 oclc_row = str(id.split("|")[0])
+                 oclc_id.append(oclc_row + "\n")
   for ids in oclc_id:
-      print str(ids)
+      sys.stdout.write(ids)
   return 0
 
 if __name__=="__main__":
