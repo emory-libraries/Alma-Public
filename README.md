@@ -33,7 +33,7 @@ See the readme in the folder
 
 ###PromptCatFirm
 
-See readme in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/PromptCatFirm/README.md) in the folder
 
 -----------------------------------------------
 
