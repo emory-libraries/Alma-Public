@@ -1,5 +1,5 @@
 #YBP PromptCat Processing
-####Author: Alex Cooper
+####Author: Alex Cooper, Bernardo Gomez, James Bias
 ####python version 2.7.5
 ####bash version 4.1.2(1)
 ####Purpose: Retrieve flies of records from the vendor and remove all records that alrerady exist in Alma
