@@ -1,1 +1,39 @@
-#Here will be a readme
+#YBP PromptCat Processing
+####Author: Alex Cooper
+####python version 2.7.5
+####bash version 4.1.2(1)
+####Purpose: Retrieve flies of records from the vendor and remove all records that alrerady exist in Alma
+
+----------------------------------
+
+###master script to run the other ones
+
+added to crontab
+
+>48 11,20 * * * bash /alma/bin/univ_ybp_firm_receive.sh 2> /tmp/univ_ybp_firm_receive.log
+
+-----------------------------------
+
+$###get vendor records
+####purpose: automate ftp retrieval of vendor provided files of MARC records
+
+input:
+
+```
+data_file=${account_number}${today_date}.mrc
+archivedir=/alma/integrations/vendors/ybp/univ/shelf_ready/archive
+loginID=[id]
+pass=[password]
+gobi_directory=[gobi directory]
+```
+
+>${bindir}gobi.exp ${data_file} ${archivedir} ${loginID} ${pass} ${gobi_directory} 2>> ${expect_err}
+
+output:
+
+```
+${expect_err}
+${archivedir}/${data_file}
+```
+
+-------------------------------------
