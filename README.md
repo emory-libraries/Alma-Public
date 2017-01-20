@@ -22,7 +22,7 @@ See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/lsc_git_jo
 -------------------------------------------------
 
 ###NewEbooks
-See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/NewEbooks/readme.md) in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/NewEbooks/README.md) in the folder
 
 ------------------------------------------------
 
