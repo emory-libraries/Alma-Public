@@ -5,29 +5,29 @@
 ----------------------------------------------
 
 ###DedupLoadFiles
-See the readme in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/DedupLoadFiles/README.md) in the folder
 
 -----------------------------------------------
 
 ###DeleteOclcHoldings
 
-See the readme in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/README.md) in the folder
 
 -----------------------------------------------
 
 ###lsc_git_journals
 
-See the readme in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/lsc_git_journals/README.md) in the folder
 
 -------------------------------------------------
 
 ###NewEbooks
-See the readme in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/NewEbooks/readme.md) in the folder
 
 ------------------------------------------------
 
 ###NewlyAcquired
-See the readme in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/NewlyAcquired/Readme.md) in the folder
 
 -----------------------------------------------
 
@@ -38,7 +38,7 @@ See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/PromptCatF
 -----------------------------------------------
 
 ###textParsing
-See the readme in the folder
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/textParsing/README.md) in the folder
 
 ------------------------------------------------
 
