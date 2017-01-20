@@ -10,7 +10,7 @@
 
 added to crontab
 
->48 11,20 * * * bash /alma/bin/univ_ybp_firm_receive.sh 2> /tmp/univ_ybp_firm_receive.log
+>48 11,20 * * * bash /alma/bin/ybp_firm_receive.sh 2> /tmp/ybp_firm_receive.log
 
 -----------------------------------
 
