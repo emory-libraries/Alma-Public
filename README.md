@@ -9,6 +9,12 @@ See the readme in the folder
 
 -----------------------------------------------
 
+###DeleteOclcHoldings
+
+See the readme in the folder
+
+-----------------------------------------------
+
 ###lsc_git_journals
 
 See the readme in the folder
@@ -22,6 +28,12 @@ See the readme in the folder
 
 ###NewlyAcquired
 See the readme in the folder
+
+-----------------------------------------------
+
+###PromptCatFirm
+
+See readme in the folder
 
 -----------------------------------------------
 
