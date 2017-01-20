@@ -1,9 +1,9 @@
 #!/opt/rh/python27/root/usr/bin/python
 # -*- coding: utf-8 -*-
 
-r"""Title: marctxt_parser.py
-Purpose: Parse marc.txt files / finite state machine example
-Author: Alex C. (copied from Bernado's sketch)
+r"""Title: Check Via SRU
+Purpose: Check for the existence of records in Alma
+Author: Alex Cooper
 Date: 09/07/2016"""
 
 import sys
