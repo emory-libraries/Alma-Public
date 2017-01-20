@@ -37,3 +37,14 @@ ${archivedir}/${data_file}
 ```
 
 -------------------------------------
+
+###check for duplicates
+####purpose: use oclc numbers to check for pre-existing records from the vendor file in Alma and split the file into files of unique and duplicate records
+
+input = file of marc records in plain text format
+
+>${bindir}check_oclcno_via_sru.py
+
+output = /tmp/ybp_sr_univ_duplicates.txt
+
+----------------------------------------
