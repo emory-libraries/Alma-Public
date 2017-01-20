@@ -27,7 +27,7 @@ limit=1000
 
 output = pipe delimited item report
 
->${bindir}new_ebooks_api.py ${config} > ${work}work_file_${todays_date} 2> $errorlog1
+>${bindir}new_ebooks_api.py ${config} > ${work}work_file_${todays_date} 2> ${errorlog1}
 
 -------------------------------------------------------------------------------------------------
 ###add 598 $$a to new items
