@@ -7,6 +7,7 @@
 ----------------------------------
 
 ###master script to run the other ones
+####dependencies: requires a C programs called marc_to_txt and txt_to_marc
 
 added to crontab
 
