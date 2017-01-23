@@ -7,7 +7,7 @@
 ----------------------------------
 
 ###master script to run the other ones
-####dependencies: requires C programs called marc_to_txt and txt_to_marc
+####dependencies: requires C programs called marc_to_txt and txt_to_marc (which have not been documented yet)
 
 added to crontab
 
@@ -16,7 +16,7 @@ added to crontab
 -----------------------------------
 
 ###get vendor records
-####purpose: automate ftp retrieval of vendor provided files of MARC records (which have not been documented yet)
+####purpose: automate ftp retrieval of vendor provided files of MARC records
 
 input:
 
