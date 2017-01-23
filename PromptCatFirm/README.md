@@ -16,7 +16,7 @@ added to crontab
 -----------------------------------
 
 ###get vendor records
-####purpose: automate ftp retrieval of vendor provided files of MARC records
+####purpose: automate ftp retrieval of vendor provided files of MARC records (which have not been documented yet)
 
 input:
 
