@@ -4,6 +4,11 @@
 
 ----------------------------------------------
 
+###Analytics MMSIds
+See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/Analytics_MMSId/README.md) in the folder
+
+----------------------------------------------
+
 ###DedupLoadFiles
 See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/DedupLoadFiles/README.md) in the folder
 
