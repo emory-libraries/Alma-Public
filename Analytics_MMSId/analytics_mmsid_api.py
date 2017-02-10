@@ -7,8 +7,6 @@ Date: 02/10/2016
 '''
 import sys
 import re
-import socks
-import socket
 from urllib2 import Request, urlopen
 from urllib import urlencode, quote_plus
 import xml.etree.ElementTree as elementTree
@@ -66,8 +64,6 @@ def main():
         configuration.close()
     except:
         sys.stderr.write("could not apply regex." + "\n")
-    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-    socket.socket = socks.socksocket
     try:
         queryParams = '?' + urlencode({ quote_plus('path') : path ,quote_plus('apikey') : apikey ,quote_plus('limit') : limit })
         request = Request(url + queryParams)
@@ -104,8 +100,6 @@ def main():
         work_to_do = True
         outcome = 1
         while work_to_do:
-            socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-            socket.socket = socks.socksocket
             try:
                 queryParams = '?' + urlencode({ quote_plus('apikey') : apikey ,quote_plus('token') : this_token ,quote_plus('limit') : limit })
                 request = Request(url + queryParams)
