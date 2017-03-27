@@ -1,21 +1,21 @@
-#Patrons Without Emails
-####python version 2.7.5
+# Patrons Without Emails
+#### python version 2.7.5
 
-####bash version 4.1.2(1)
+#### bash version 4.1.2(1)
 
-####Purpose: Produce a report of patron records in Alma that do not have an email or an invalid email
+#### Purpose: Produce a report of patron records in Alma that do not have an email or an invalid email
 
-####Dependencies: the api scripts are using the socks and socket modules to place api calls via bela ; requires an Alma Analytics report
+#### Dependencies: the api scripts are using the socks and socket modules to place api calls via bela ; requires an Alma Analytics report
 
 ------------------------------------------
 
-###master script to run the newly acquired scripts below
+### master script to run the newly acquired scripts below
 added to crontab
 >06 08 * * 1 bash /alma/bin/patrons_no_email.sh 2> /tmp/patrons_no_email.log
 
 -----------------------------------------
 
-###get new records with analytics api
+### get new records with analytics api
 
 input = config file with:
 ```
@@ -30,7 +30,7 @@ output = csv report
 
 ---------------------------------------
 
-###create analytics analysis
+### create analytics analysis
 
 PatronsNoEmail.sql contains the sql of the query for the analysis
 
