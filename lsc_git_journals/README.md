@@ -1,17 +1,17 @@
-#Get GIT LSC Journals Holdings
-####python version 2.7.5
-####bash version 4.1.2(1)
-####Purpose: Retrieve GIT journals holdings in the LSC for deduping
-####Dependencies: GIT analytics is used to produce the list
+# Get GIT LSC Journals Holdings
+#### python version 2.7.5
+#### bash version 4.1.2(1)
+#### Purpose: Retrieve GIT journals holdings in the LSC for deduping
+#### Dependencies: GIT analytics is used to produce the list
 ---------------------------------------------------------------
-###master script to run the script(s) below
+### master script to run the script(s) below
 
 added to crontab
 
 >18 09 * * * bash /alma/bin/lsc_git_journals.sh 2> /tmp/lsc_git_journals.log
 
 ---------------------------------------------------------------
-###get GIT journals holdings
+### et GIT journals holdings
 
 
 input = config file with:
@@ -26,7 +26,7 @@ limit=1000
 >${bindir}lsc_journals_analytics_api.py ${config}
 
 -------------------------------------------------------------------
-###analytics report
+### analytics report
 
 query:
 
