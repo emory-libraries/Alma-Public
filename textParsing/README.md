@@ -1,9 +1,9 @@
-#Parse MARC Text Files
-####python version 2.7.5
-####Purpose: parse MARC text files, example of a finite state machine
-####Dependencies: requires a text file as produced from MARC using marc_to_txt
+# Parse MARC Text Files
+#### python version 2.7.5
+#### Purpose: parse MARC text files, example of a finite state machine
+#### Dependencies: requires a text file as produced from MARC using marc_to_txt
 ------------------------------------------------------------------------------
-###marctxt_parser.py
+### marctxt_parser.py
 input = a marc.txt file
 
 ```
