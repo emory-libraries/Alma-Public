@@ -31,7 +31,7 @@ See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/NewEbooks/
 
 ------------------------------------------------
 
-###NewlyAcquired
+### NewlyAcquired
 See the [readme](https://github.com/Emory-LCS/Alma-Public/blob/master/NewlyAcquired/Readme.md) in the folder
 
 -----------------------------------------------
