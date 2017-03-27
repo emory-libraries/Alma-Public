@@ -1,9 +1,9 @@
-#Dedup Load Files
-####python version 2.7.5
-####Purpose: check oclc numbers in load files against alma to avoid duplication
-####Dependencies: requires a text file as produced from MARC using marc_to_txt
+# Dedup Load Files
+#### python version 2.7.5
+#### Purpose: check oclc numbers in load files against alma to avoid duplication
+#### Dependencies: requires a text file as produced from MARC using marc_to_txt
 -------------------------------------------------------------------------------
-##check_oclcno_via_sru.py
+### check_oclcno_via_sru.py
 input = a marc.txt file
 
 ```
