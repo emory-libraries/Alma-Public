@@ -1,21 +1,21 @@
-#Newly Acquired Titles
-####python version 2.7.5
+# Newly Acquired Titles
+#### python version 2.7.5
 
-####bash version 4.1.2(1)
+#### bash version 4.1.2(1)
 
-####Purpose: Flag items acquired in the last 60 days to create a Newly Acquired flag for Primo
+#### Purpose: Flag items acquired in the last 60 days to create a Newly Acquired flag for Primo
 
-####Dependencies: this will also remove outdated ebooks ; analytics provides the list of records
+#### Dependencies: this will also remove outdated ebooks ; analytics provides the list of records
 
 -------------------------------------------------------------------------------------------------
 
-###master script to run the newly acquired scripts below
+### master script to run the newly acquired scripts below
 added to crontab
 >26 11 * * * bash /alma/bin/newly_acquired.sh 2> /tmp/newly_acquired.log
 
 -------------------------------------------------------------------------------------------------
 
-###get new records with analytics api
+### get new records with analytics api
 input = config file with:
 ```
 url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/analytics/reports
@@ -28,7 +28,7 @@ output = pipe delimited item report
 
 ---------------------------------------------------------------------------------------------------
 
-###modify the api results to a custom xml
+### modify the api results to a custom xml
 input = file of pipe delimited item report
 
 output = custom xml of item report
@@ -36,7 +36,7 @@ output = custom xml of item report
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-###create a list of new and pending items
+### create a list of new and pending items
 input = custom xml of item report
 
 output = pipe delimited file of new and pending items
@@ -44,7 +44,7 @@ output = pipe delimited file of new and pending items
 
 --------------------------------------------------------------------------------------------------------------------------
 
-###create 2 files: new and pending
+### create 2 files: new and pending
 input: pipe delimited file of new and pending items
 
 output: files of new and pending items
@@ -52,7 +52,7 @@ output: files of new and pending items
 
 -------------------------------------------------------------------------------
 
-###check pending file against alma
+### check pending file against alma
 input = file of pending items, api key
 
 output = file of items that are no longer pending
@@ -60,24 +60,24 @@ output = file of items that are no longer pending
 
 -------------------------------------------------------------------------------------------------------------
 
-###add no longer pending items to today's new list
+### add no longer pending items to today's new list
 >${bindir}new_pending_items_process.sh
 
 ------------------------------------------------
 
-###add 598 $$a to new items
+### add 598 $$a to new items
 input: file of new mmsids, config file with api key
 >cat ${new_titles}new_mms_ids_${todays_date} | ${bindir}new_items_put.py ${config2} 2> ${errorlog6}
 
 --------------------------------------------------------------------------------------------------
 
-###find file of old items and remove 598 $$a
+### find file of old items and remove 598 $$a
 this script runs old_items_update.py
 >${bindir}old_items.sh 2> ${errorlog7}
 
 --------------------------------------------------------------------------------------------------
 
-###analytics report
+### analytics report
 Physical Items Analysis Bibliographic Details > MMS Id / Item Creation Date > Item Creation Date / Item Modification Date > Item Modification Date / Physical Item Details > Barcode / Physical Item Details > Process Type / Physical Item Details > Receiving Date
 
 ```
