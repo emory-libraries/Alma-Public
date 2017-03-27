@@ -1,13 +1,13 @@
-#YBP PromptCat Processing
-####Author: Alex Cooper, Bernardo Gomez, James Bias
-####python version 2.7.5
-####bash version 4.1.2(1)
-####Purpose: Retrieve flies of records from the vendor and remove all records that alrerady exist in Alma
+# YBP PromptCat Processing
+#### Author: Alex Cooper, Bernardo Gomez, James Bias
+#### python version 2.7.5
+#### bash version 4.1.2(1)
+#### Purpose: Retrieve flies of records from the vendor and remove all records that alrerady exist in Alma
 
 ----------------------------------
 
-###master script to run the other ones
-####dependencies: requires C programs called marc_to_txt and txt_to_marc (which have not been documented yet)
+### master script to run the other ones
+#### dependencies: requires C programs called marc_to_txt and txt_to_marc (which have not been documented yet)
 
 added to crontab
 
@@ -15,8 +15,8 @@ added to crontab
 
 -----------------------------------
 
-###get vendor records
-####purpose: automate ftp retrieval of vendor provided files of MARC records
+### get vendor records
+#### purpose: automate ftp retrieval of vendor provided files of MARC records
 
 input:
 
@@ -39,8 +39,8 @@ ${archivedir}/${data_file}
 
 -------------------------------------
 
-###check for duplicates
-####purpose: use oclc numbers to check for pre-existing records from the vendor file in Alma and split the file into files of unique and duplicate records
+### check for duplicates
+#### purpose: use oclc numbers to check for pre-existing records from the vendor file in Alma and split the file into files of unique and duplicate records
 
 input = file of marc records in plain text format
 
