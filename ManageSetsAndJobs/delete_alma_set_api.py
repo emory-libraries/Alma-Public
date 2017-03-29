@@ -41,8 +41,16 @@ def main():
         request.get_method = lambda: 'DELETE'
         response_body = urlopen(request).read()
 #        print response_body
-    except:
-        sys.stderr.write("could not call url" + "\n")
+    except HTTPError, e:
+        message = e.read()
+        in_string = message
+        in_string = in_string.replace("\n", "")
+        in_string = in_string.replace(" xmlns=\"http://com/exlibris/urm/general/xmlbeans\"", "")
+        tree = ET.fromstring(in_string)
+        errorMessage = tree.find('errorList/error/errorMessage')
+        errorMessage = errorMessage.text
+        sys.stderr.write("HTTPError: " + str(errorMessage) + "\n")
+    configuration.close()
 
 if __name__=="__main__":
     sys.exit(main())
