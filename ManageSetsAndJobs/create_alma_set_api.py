@@ -8,7 +8,7 @@ Purpose: Create sets of item records in Alma
 import sys
 import os
 import re
-from urllib2 import Request, urlopen
+from urllib2 import Request, urlopen, HTTPError
 from urllib import urlencode, quote_plus
 import xml.etree.ElementTree as ET
 
