@@ -1,12 +1,21 @@
 #!/bin/bash
 
+config="/sirsi/webserver/config/"
+. ${config}environ     # dot in environ variables
+
+# export all of the environ variables to my children
+for env_var in $(cat ${config}environ | awk -F'=' '{print $1}')
+do
+  export ${env_var}
+done
+
 direc="/sirsi/webserver/external_data/set_management/barcodes/"
 archive="/sirsi/webserver/external_data/set_management/barcodes/archive/"
 workdir="/sirsi/webserver/external_data/set_management/barcodes/work/"
 bindir="/sirsi/webserver/bin/"
 configdir="/sirsi/webserver/config/"
-setid1="10739044340002486"
-setid2="10739414830002486"
+setid1=$(${bindir}create_alma_set_api.py ${configdir}alma_create_delete_set.cfg)
+setid2=$(${bindir}create_alma_set_api.py ${configdir}alma_create_process_set.cfg)
 
 if [ -e ${direc}delete_me_* ]; then
     for f in ${direc}delete_me_*; do
