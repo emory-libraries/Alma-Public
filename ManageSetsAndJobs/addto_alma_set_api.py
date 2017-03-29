@@ -8,7 +8,7 @@ Purpose: Add members to sets of item records in Alma
 import sys
 import os
 import re
-from urllib2 import Request, urlopen
+from urllib2 import Request, urlopen, HTTPError
 from urllib import urlencode, quote_plus
 import xml.etree.ElementTree as ET
 
@@ -76,8 +76,16 @@ def main():
         response_body = urlopen(request).read()
 #        print "hello"
         print response_body
-    except:
-        sys.stderr.write("could not call url" + "\n")
+    except HTTPError, e:
+        message = e.read()
+        print message
+        in_string = message
+        in_string = in_string.replace("\n", "")
+        in_string = in_string.replace(" xmlns=\"http://com/exlibris/urm/general/xmlbeans\"", "")
+        tree = ET.fromstring(in_string)
+        errorMessage = tree.find('errorList/error/errorMessage')
+        errorMessage = errorMessage.text
+        sys.stderr.write("HTTPError: " + str(errorMessage) + "\n")
     configuration.close()
 
 if __name__=="__main__":
