@@ -16,6 +16,8 @@ bindir="/sirsi/webserver/bin/"
 configdir="/sirsi/webserver/config/"
 setid1=$(${bindir}create_alma_set_api.py ${configdir}alma_create_delete_set.cfg)
 setid2=$(${bindir}create_alma_set_api.py ${configdir}alma_create_process_set.cfg)
+setfile="/tmp/setids"
+mail_list="acoope5@emory.edu"
 
 if [ -e ${direc}delete_me_* ]; then
     for f in ${direc}delete_me_*; do
@@ -36,6 +38,12 @@ if [ -e ${workdir}deletes_00 ]; then
         cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid1} > "/tmp/addto_$$.log" 2> "/tmp/addto_$$.err"
         rm ${f}
     done
+    number_of_members=$(echo ${setid1} | ${bindir}get_alma_set_api.py ${configdir}alma_get_set_api.cfg)
+    if [ ${number_of_members} -lt 4500 ]; then
+        mail -s "Delete Me File is Small" ${mail_list} <<EOM
+        delete_me only has ${number_of_members} members.
+EOM
+    fi
 fi
 
 if [ -e ${workdir}process_00 ]; then
@@ -43,6 +51,16 @@ if [ -e ${workdir}process_00 ]; then
         cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid2} > "/tmp/addto_$$.log" 2> "/tmp/addto_$$.err"
         rm ${f}
     done
+    number_of_members=$(echo ${setid2} | ${bindir}get_alma_set_api.py ${configdir}alma_get_set_api.cfg)
+    if [ ${number_of_members} -lt 4500 ]; then
+        mail -s "Process Me File is Small" ${mail_list} <<EOM
+        process_me only has ${number_of_members} members.
+EOM
+    fi
 fi
+
+echo ${setid1} > ${setfile}
+
+echo ${setid2} >> ${setfile}
 
 exit 0
