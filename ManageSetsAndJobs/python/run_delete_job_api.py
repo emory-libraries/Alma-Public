@@ -43,7 +43,7 @@ def main():
         request.get_method = lambda: 'POST'
         response_body = urlopen(request).read()
 #        print "hello"
-        print response_body
+#        print response_body
     except HTTPError, e:
         message = e.read()
         print message
