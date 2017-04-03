@@ -6,7 +6,7 @@
 
 #### Contributors: Alex Cooper, Bernardo Gomez, Elizabeth Peele Mumpower
 
-#### Dependencies: needs data from reports such as from analytics
+#### Dependencies: needs data (a list of barcodes) from reports such as from analytics
 
 #### Purpose: automate set creation, management, and deletion and job usage
 
@@ -15,3 +15,11 @@
 ## Under Construction!
 
 ------------------------------------
+
+### shell scripts to run all of the python scripts
+
+> 11 17 * * * bash /sirsi/webserver/bin/set_management_alma.sh 2> /tmp/set_management_$$.err
+
+> 23 23 * * * bash /sirsi/webserver/bin/delete_alma_set.sh 2> /tmp/set_delete_$$.err
+
+-----------
