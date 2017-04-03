@@ -14,11 +14,13 @@ archive="/sirsi/webserver/external_data/set_management/barcodes/archive/"
 workdir="/sirsi/webserver/external_data/set_management/barcodes/work/"
 bindir="/sirsi/webserver/bin/"
 configdir="/sirsi/webserver/config/"
+####create sets and store ids
 setid1=$(${bindir}create_alma_set_api.py ${configdir}alma_create_delete_set.cfg)
 setid2=$(${bindir}create_alma_set_api.py ${configdir}alma_create_process_set.cfg)
 setfile="/tmp/setids"
 mail_list="acoope5@emory.edu"
 
+####split barcode file into batches of 100
 if [ -e ${direc}delete_me_* ]; then
     for f in ${direc}delete_me_*; do
         split -l 100 -d ${f} ${workdir}deletes_
@@ -26,6 +28,7 @@ if [ -e ${direc}delete_me_* ]; then
     done
 fi
 
+####split barcode file into batches of 100
 if [ -e ${direc}process_me_* ]; then
     for f in ${direc}process_me_*; do
         split -l 100 -d ${f} ${workdir}process_
@@ -33,25 +36,30 @@ if [ -e ${direc}process_me_* ]; then
     done
 fi
 
+####add members to delete set 100 at a time
 if [ -e ${workdir}deletes_00 ]; then
     for f in ${workdir}deletes*; do
         cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid1} > "/tmp/addto_$$.log" 2> "/tmp/addto_$$.err"
         rm ${f}
     done
+####check the number of barcodes added to the delete set
     number_of_members=$(echo ${setid1} | ${bindir}get_alma_set_api.py ${configdir}alma_get_set_api.cfg)
     if [ ${number_of_members} -lt 4500 ]; then
         mail -s "Delete Me File is Small" ${mail_list} <<EOM
         delete_me only has ${number_of_members} members.
 EOM
     fi
+####run the job to delete the items
     run_delete_job_api.py ${configdir}alma_run_delete_job.cfg ${setid1}
 fi
 
+####add members to publishing set 100 at a time
 if [ -e ${workdir}process_00 ]; then
     for f in ${workdir}process*; do
         cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid2} > "/tmp/addto_$$.log" 2> "/tmp/addto_$$.err"
         rm ${f}
     done
+####check the number of barcodes added to the delete set
     number_of_members=$(echo ${setid2} | ${bindir}get_alma_set_api.py ${configdir}alma_get_set_api.cfg)
     if [ ${number_of_members} -lt 4500 ]; then
         mail -s "Process Me File is Small" ${mail_list} <<EOM
@@ -60,6 +68,7 @@ EOM
     fi
 fi
 
+####create file with set ids for delete set script
 echo ${setid1} > ${setfile}
 
 echo ${setid2} >> ${setfile}
