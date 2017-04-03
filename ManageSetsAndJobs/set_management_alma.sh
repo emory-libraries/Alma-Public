@@ -19,22 +19,33 @@ setid1=$(${bindir}create_alma_set_api.py ${configdir}alma_create_delete_set.cfg)
 setid2=$(${bindir}create_alma_set_api.py ${configdir}alma_create_process_set.cfg)
 setfile="/tmp/setids"
 mail_list="acoope5@emory.edu"
+today=$(date +"%Y%m%d")
 
 ####split barcode file into batches of 100
-if [ -e ${direc}delete_me_* ]; then
-    for f in ${direc}delete_me_*; do
+count=0
+for f in ${direc}delete_me_*; do
+    if [ ${count} -eq 0 ]; then
         split -l 100 -d ${f} ${workdir}deletes_
-        mv ${f} ${archive}
-    done
-fi
+        mv ${f} ${f}.${today}
+        mv ${f}.${today} ${archive}
+        ((count++))
+    elif [ ${count} -gt 0 ]; then
+        break
+    fi
+done
 
 ####split barcode file into batches of 100
-if [ -e ${direc}process_me_* ]; then
-    for f in ${direc}process_me_*; do
+count=0
+for f in ${direc}process_me_*; do
+    if [ ${count} -eq 0 ]; then
         split -l 100 -d ${f} ${workdir}process_
-        mv ${f} ${archive}
-    done
-fi
+        mv ${f} ${f}.${today}
+        mv ${f}.${today} ${archive}
+        ((count++))
+    elif [ ${count} -gt 0 ]; then
+        break
+    fi    
+done
 
 ####add members to delete set 100 at a time
 if [ -e ${workdir}deletes_00 ]; then
@@ -50,7 +61,7 @@ if [ -e ${workdir}deletes_00 ]; then
 EOM
     fi
 ####run the job to delete the items
-    run_delete_job_api.py ${configdir}alma_run_delete_job.cfg ${setid1}
+    ${bindir}run_delete_job_api.py ${configdir}alma_run_delete_job.cfg ${setid1}
 fi
 
 ####add members to publishing set 100 at a time
