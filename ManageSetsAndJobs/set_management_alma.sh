@@ -44,6 +44,7 @@ if [ -e ${workdir}deletes_00 ]; then
         delete_me only has ${number_of_members} members.
 EOM
     fi
+    run_delete_job_api.py ${configdir}alma_run_delete_job.cfg ${setid1}
 fi
 
 if [ -e ${workdir}process_00 ]; then
