@@ -1,7 +1,7 @@
-#!/usr/bin/python
+#!/bin/env python
 # -*- coding: utf-8 -*-
 r"""
-   Author: Alex Cooper, Bernardo Gomez
+   Author: Alex Cooper
    Date: August, 2016
    Purpose: get oclc ids of deleted/withdrawn alma records
 """
@@ -9,6 +9,8 @@ import os
 import sys
 import random
 import re
+import socks
+import socket
 import requests
 import xml.etree.ElementTree as elementTree
 import datetime as dt
@@ -59,6 +61,8 @@ def get_item_info(rows,id_list):
 
 ####ensure there is no record with that oclc number still in Alma
 def check_oclc_numbers(id,query):
+
+    result = ""
     outcome = 1
     id_check = "okay"
     url = "https://na03.alma.exlibrisgroup.com/view/sru/01GALI_EMORY?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma."
@@ -66,6 +70,8 @@ def check_oclc_numbers(id,query):
     oclc_no = oclc_no[1]
     oclc_no = str(oclc_no)
     queryParams = urlencode({ query : oclc_no })
+    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
+    socket.socket = socks.socksocket
     try:
         request = Request(url + queryParams)
         result = urlopen(request).read()
@@ -107,6 +113,8 @@ def main():
 
   in_string=""
   outcome=1
+  socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
+  socket.socket = socks.socksocket
   payload={'apikey':apikey,'path':path,'limit':limit}
   sys.stderr.write("analytics path:"+str(path)+"\n")
   try:
@@ -160,6 +168,9 @@ def main():
       work_to_do=True
       outcome=1
       while work_to_do:
+        
+         socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
+         socket.socket = socks.socksocket
          payload={'apikey':apikey,'token':this_token,'limit':limit}
          try:
             r=requests.get(url,params=payload)
@@ -169,9 +180,11 @@ def main():
          return_code=r.status_code
          if return_code == 200:
             response=r.content
+#            print response
          else:
             sys.stderr.write("FAILED(2)\n")
             response=r.content
+#            print response
             sys.stderr.write(str(response)+"\n")
             return outcome
          in_string=response
@@ -199,6 +212,7 @@ def main():
             sys.stderr.write("empty result"+"\n")
             return 1
          id_list,outcome=get_item_info(result_node,id_list)
+#         print id_list
   else:
          try:
            result_node=tree.findall("QueryResult/ResultXml/rowset/Row")
@@ -209,11 +223,13 @@ def main():
             sys.stderr.write("empty result"+"\n")
             return 1
          id_list,outcome=get_item_info(result_node,id_list)
+#         print id_list
   oclc_id = []
   for id in id_list:
      oclc_no = str(id.split("|")[1])
      if oclc_no != "No OCLC Number Available":
          id_check,outcome = check_oclc_numbers(id,"other_system_number")
+#         print id_check
          id_check=id_check.replace("record xmlns=\"\"","record")
          id_check=id_check.replace(" xmlns=\"http://www.loc.gov/zing/srw/\"","")
          id_check=id_check.replace("\n","")
@@ -262,9 +278,40 @@ def main():
                                              elif sf.text == "MUSME":
                                                  oclc_row = str(id.split("|")[1])
                                                  sys.stderr.write(oclc_row + " exists in Alma" + "\n")
-                                             else:
-                                                 oclc_row = str(id.split("|")[0])
-                                                 oclc_id.append(oclc_row + "\n")
+                                         elif sf.get(k) == "c":
+                                             if sf.text == "BSTOR":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "BSTORJ":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "MSTOR":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "MSTORJ":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "SSTOR":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "SSTORJ":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "USTOR":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "USTORGD":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "USTORJ":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                             elif sf.text == "USTORNC":
+                                                 oclc_row = str(id.split("|")[1])
+                                                 sys.stderr.write(oclc_row + " exists in Alma" + "\n")
+                                         else:
+                                             oclc_row = str(id.split("|")[0])
+                                             oclc_id.append(oclc_row + "\n")
 ####                         check for ebook holdings
                              elif holding == "AVE":
                                  try:
