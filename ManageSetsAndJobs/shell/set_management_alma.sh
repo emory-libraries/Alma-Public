@@ -14,6 +14,10 @@ archive="/sirsi/webserver/external_data/set_management/barcodes/archive/"
 workdir="/sirsi/webserver/external_data/set_management/barcodes/work/"
 bindir="/sirsi/webserver/bin/"
 configdir="/sirsi/webserver/config/"
+delete_log="/tmp/delete_me_$$.log"
+delete_err="/tmp/delete_me_$$.err"
+process_log="/tmp/process_me_$$.log"
+process_err="/tmp/process_me_$$.err"
 ####create sets and store ids
 setid1=$(${bindir}create_alma_set_api.py ${configdir}alma_create_delete_set.cfg)
 setid2=$(${bindir}create_alma_set_api.py ${configdir}alma_create_process_set.cfg)
@@ -26,8 +30,7 @@ count=0
 for f in ${direc}delete_me_*; do
     if [ ${count} -eq 0 ]; then
         split -l 100 -d ${f} ${workdir}deletes_
-        mv ${f} ${f}.${today}
-        mv ${f}.${today} ${archive}
+        mv ${f} ${archive}
         ((count++))
     elif [ ${count} -gt 0 ]; then
         break
@@ -50,8 +53,17 @@ done
 ####add members to delete set 100 at a time
 if [ -e ${workdir}deletes_00 ]; then
     for f in ${workdir}deletes*; do
-        cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid1} > "/tmp/addto_$$.log" 2> "/tmp/addto_$$.err"
-        rm ${f}
+        cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid1} > ${delete_log} 2>> ${delete_err}
+        if [ -s ${delete_err} ]; then
+            mail -a ${f} -s "An error occured in adding to the set" ${mail_list} <<EOM
+While processing $(echo ${f}) the following error occurred:
+
+$(cat ${delete_err})
+EOM
+            rm ${delete_err}
+        else
+            rm ${f}
+        fi
     done
 ####check the number of barcodes added to the delete set
     number_of_members=$(echo ${setid1} | ${bindir}get_alma_set_api.py ${configdir}alma_get_set_api.cfg)
@@ -67,7 +79,17 @@ fi
 ####add members to publishing set 100 at a time
 if [ -e ${workdir}process_00 ]; then
     for f in ${workdir}process*; do
-        cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid2} > "/tmp/addto_$$.log" 2> "/tmp/addto_$$.err"
+        cat ${f} | ${bindir}addto_alma_set_api.py ${configdir}alma_add_members_api.cfg ${setid2} > ${process_log} 2>> ${process_err}
+        if [ -s ${process_err} ]; then
+            mail -a ${f} -s "An error occured in adding to the set" ${mail_list} <<EOM
+While processing $(echo ${f}) the following error occurred:
+
+$(cat ${process_err})
+EOM
+            rm ${process_err}
+        else
+            rm ${f}
+        fi
         rm ${f}
     done
 ####check the number of barcodes added to the delete set
