@@ -1,22 +1,22 @@
 # Under Construction!!!
-#### Authors: Alex Cooper, Bernardo Gomez, Lisa Hamlett
+#### Contributers: Alex Cooper, Bernardo Gomez, Erin Grant, Lisa Hamlett
 #### python version 2.7.5
 #### bash version 4.1.2(1)
-#### Purpose: Delete OCLC holdings for deleted and withdrawn bibliographic records
-#### Dependencies: titles that have been deleted or withdrawn will have their OCLC holdings removed ; analytics is used to produce the list of OCLC numbers ; sru is used to ensure that there are no duplicate holdings in Alma
+#### Purpose: Set OCLC holdings for deleted and withdrawn bibliographic records
+#### Dependencies: titles that have been newly added will have their OCLC holdings set ; analytics is used to produce the list of OCLC numbers
 -----------------------------------------------------
 
 ### master script to run the script(s) below
 
 added to crontab
 
->06 09 * * * bash /alma/bin/delete_oclc_holdings.sh 2> /tmp/delete_oclc_holdings.log
+>06 09 * * * bash /alma/bin/set_oclc_holdings.sh 2> /tmp/set_oclc_holdings.log
 
 -------------------------------------------------------
 
 ### get OCLC numbers API
 ##### Purpose: retrieve OCLC number from Analytics report for Yesterday's deletes via an API call and check via a SRU call that the bib record is no longer in Alma by checking for the OCLC number
-##### Dependencies: Relies on Analytics reports based on these queries [1_days_deleted.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/1_days_deleted.sql), [WithdrawnMonographs1-CollectMMSIDs.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/WithdrawnMonographs1-CollectMMSIDs.sql), [WithdrawnMonographs2-ExcludeNon-WDs.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/WithdrawnMonographs2-ExcludeNon-WDs.sql), [WithdrawnMonographs3Final.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/WithdrawnMonographs3Final.sql)
+##### Dependencies: Relies on Analytics reports based on these queries [SetOCLCHolTESTexclFULFILL.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/WithdrawnMonographs2-ExcludeNon-WDs.sql), [SetOCLCHolTEST.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/WithdrawnMonographs3Final.sql)
 
 input = config file with:
 
@@ -27,13 +27,13 @@ apikey=[your apikey]
 limit=1000
 ```
 
-output = OCLC numbers for holding to be removed and report of OCLC numbers that are still in Alma and need to be checked by staff
+output = OCLC numbers for holding to be set
 
->${bindir}get_alma_deleted_holdings.py ${config}
+>${bindir}get_alma_set_holdings.py ${config}
 
 ------------------------------------------------------------
 
-### remove OCLC holdings
+### set OCLC holdings
 
 input = list of OCLC numbers + config file with:
 
@@ -41,7 +41,7 @@ input = list of OCLC numbers + config file with:
 url=https://worldcat.org/ih/
 clientId=[your client id]
 secret=[your secret key]
-http_method=DELETE
+http_method=POST
 oclc_curl=www.oclc.org
 port=443
 path=wskey/
@@ -54,6 +54,6 @@ library_code=[your 4 character library code]
 
 output = API response
 
->${bindir}oclc_delete_holdings.py ${config}
+>${bindir}oclc_set_holdings.py ${config}
 
 -------------------------------------------------
