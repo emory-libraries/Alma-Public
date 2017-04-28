@@ -16,7 +16,7 @@ added to crontab
 
 ### get OCLC numbers API
 ##### Purpose: retrieve OCLC number from Analytics report for Yesterday's deletes via an API call and check via a SRU call that the bib record is no longer in Alma by checking for the OCLC number
-##### Dependencies: Relies on Analytics reports based on these queries [SetOCLCHolTESTexclFULFILL.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/WithdrawnMonographs2-ExcludeNon-WDs.sql), [SetOCLCHolTEST.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/WithdrawnMonographs3Final.sql)
+##### Dependencies: Relies on Analytics reports based on these queries [SetOCLCHolTESTexclFULFILL.sql](Alma-Public/SetOclcHoldings/SetOCLCHolTESTexclFULFILL.sql), [SetOCLCHolTEST.sql](Alma-Public/SetOclcHoldings/SetOCLCHolTEST.sql)
 
 input = config file with:
 
