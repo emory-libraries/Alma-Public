@@ -1,5 +1,5 @@
 # Delete OCLC Holdings
-#### Authors: Alex Cooper, Bernardo Gomez, Erin Grant, Lisa Hamlett
+#### Contributors: Alex Cooper, Bernardo Gomez, Erin Grant, Lisa Hamlett
 #### python version 2.7.5
 #### bash version 4.1.2(1)
 #### Purpose: Delete OCLC holdings for deleted and withdrawn bibliographic records
