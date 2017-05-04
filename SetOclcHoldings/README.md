@@ -2,7 +2,7 @@
 #### Contributers: Alex Cooper, Bernardo Gomez, Erin Grant, Lisa Hamlett
 #### python version 2.7.5
 #### bash version 4.1.2(1)
-#### Purpose: Set OCLC holdings for deleted and withdrawn bibliographic records
+#### Purpose: Set OCLC holdings for new bibliographic records
 #### Dependencies: titles that have been newly added will have their OCLC holdings set ; analytics is used to produce the list of OCLC numbers
 -----------------------------------------------------
 
