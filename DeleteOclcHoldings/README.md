@@ -16,7 +16,7 @@ added to crontab
 
 ### get OCLC numbers API
 ##### Purpose: retrieve OCLC number from Analytics report for Yesterday's deletes via an API call and check via a SRU call that the bib record is no longer in Alma by checking for the OCLC number
-##### Dependencies: Relies on Analytics reports based on these queries [WithdrawnMonographs1-CollectMMSIDs.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/WithdrawnMonographs1-CollectMMSIDs.sql), [WithdrawnMonographs2-ExcludeNon-WDs.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/WithdrawnMonographs2-ExcludeNon-WDs.sql), [WithdrawnMonographs3Final.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/WithdrawnMonographs3Final.sql)
+##### Dependencies: Relies on Analytics reports based on these queries [recentlyDeletedMonos1.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/recentlyDeletedMonos1.sql),[recentlyDeletedMonos2.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/recentlyDeletedMonos2.sql),[recentlyDeletedMonos3.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/recentlyDeletedMonos3.sql),[WithdrawnMonographs1-CollectMMSIDs.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/WithdrawnMonographs1-CollectMMSIDs.sql), [WithdrawnMonographs2-ExcludeNon-WDs.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/WithdrawnMonographs2-ExcludeNon-WDs.sql), [WithdrawnMonographs3Final.sql](https://github.com/Emory-LCS/Alma-Public/blob/master/DeleteOclcHoldings/sql/WithdrawnMonographs3Final.sql)
 
 input = config file with:
 
