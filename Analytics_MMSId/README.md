@@ -1,7 +1,7 @@
 # Analytics MMSId
 #### python version 2.7.5
 
-#### Purpose: Get MMSIds from an Analytics report
+#### Purpose: Get MMSIds from an Analytics report and general template for Analytics APIs
 
 #### Dependencies: an Analytics report
 
