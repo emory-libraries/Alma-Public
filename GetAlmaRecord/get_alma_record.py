@@ -5,12 +5,17 @@
   Web service that receives an alma mms_id or an item's barcode; it retrieves
   the bibliographic record and the associated copies from ALMA's 
   api server;  and it displays the consolidated record to 
-  the web client in one of three formats: "xml", "marcedit" or "text".
+  the web client in one of three formats: 
+    "xml", or
+    "marcedit", or 
+    "text".
   "text" format is home-grown display of MARC records developed by 
   bernardo gomez. the default format is xml.
   example of a request against emory's alma catalog:
   https://libapiproxyprod1.library.emory.edu/cgi-bin/get_alma_record?doc_id=990022633760302486&format=marcedit 
+  
   https://libapiproxyprod1.library.emory.edu/cgi-bin/get_alma_record?item_id=010002975279&format=marcedit 
+  
   this program expects a configuration file, as a command line argument, with the following lines:
   sys_email= (if script reports fatal failures to admins. not used in this version.)
   api_host=https://api-na.hosted.exlibrisgroup.com
