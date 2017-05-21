@@ -8,6 +8,7 @@ formats:
 
 Example of webservice URL: 
 https://kleene.library.emory.edu/cgi-bin/get_alma_record?doc_id=9936579694202486&format=marcedit
+https://kleene.library.emory.edu/cgi-bin/get_alma_record?item_id=010002975279 
 
 Default format is "xml".
 ### Files:
