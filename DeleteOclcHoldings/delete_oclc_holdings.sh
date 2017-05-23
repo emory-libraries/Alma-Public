@@ -4,16 +4,20 @@ bin_dir="/alma/bin/"
 config="/alma/config/produce_deleted_records.cfg"
 config2="/alma/config/produce_withdrawn_records.cfg"
 config3="/alma/config/produce_deleted_items_list.cfg"
+config4="/alma/config/produce_deleted_ebooks.cfg"
 config_dir="/alma/config/"
 error_log="/alma/integrations/oclc/delete/log/delete_oclc_log.$$"
 error_log2="/alma/integrations/oclc/delete/log/delete_oclc_log2.$$"
 error_log3="/alma/integrations/oclc/delete/log/delete_oclc_log3.$$"
+error_log4="/alma/integrations/oclc/delete/log/delete_oclc_log4.$$"
 log_parsed="/alma/integrations/oclc/delete/work/delete_oclc_log.txt"
 log_parsed2="/alma/integrations/oclc/delete/work/delete_oclc_log2.txt"
 log_parsed3="/alma/integrations/oclc/delete/work/delete_oclc_log3.txt"
+log_parsed4="/alma/integrations/oclc/delete/work/delete_oclc_log4.txt"
 results1="/alma/integrations/oclc/delete/work/delete_oclc_results1_$$.txt"
 results2="/alma/integrations/oclc/delete/work/delete_oclc_results2_$$.txt"
 results3="/alma/integrations/oclc/delete/work/delete_oclc_results3_$$.txt"
+results4="/alma/integrations/oclc/delete/work/delete_oclc_results4_$$.txt"
 oclc_api_log="/alma/integrations/oclc/delete/log/oclc_api_$$"
 
 mail_list="[emails]"
@@ -60,5 +64,8 @@ EOM
     fi
 
 fi
+
+####unset holdings for deleted ebooks
+${bin_dir}get_alma_deleted_ebooks.py ${config4} 2> ${error_log4} | ${bindir}oclc_delete_holdings.py ${config_dir}delete_oclc_holdings.cfg >  ${results4} 2>> ${oclc_api_log}
 
 exit 0
