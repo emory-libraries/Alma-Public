@@ -2,9 +2,9 @@
 retrieve a bibliographic record and its copies. The API server returns
 XML strings and *get_alma_record* assembles the record in one of three
 formats:
-- MARCXML (xml), 
-- marcEdit 
-- text.
+- xml (MARCXML ), 
+- marcedit ( terry reese's marcEdit), 
+- text (bernardo gomez plain-text format)
 
 Example of webservice URL: 
 - https://kleene.library.emory.edu/cgi-bin/get_alma_record?doc_id=9936579694202486&format=marcedit
