@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+<title>Unknown carrier</title>
+<style>a.menu_xml_http{font-weight:bold;}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<style type="text/css">
+
+
+td.field {display:none;}
+</style>
+
+
+<script type="text/javascript">
+
+function validate_required(field,alerttxt)
+{
+ with (field)
+ {
+  if (value==null||value=="")
+    {alert(alerttxt);return false}
+  else {return true}
+ }
+}
+
+function validateNumber(field, msg, min, max) {
+     if (!min) { min = 0 }
+     if (!max) { max = 255 }
+     if ( (parseInt(field.value) != field.value) ||
+   field.value.length < min ||
+   field.value.length > max) {
+         alert(msg);
+         field.focus();
+         field.select();
+         return false;
+     }
+    return true;
+}
+
+function validateNotes(field, msg) {
+  var alphaExp = /^[0-9a-zA-Z\s\.,?]+$/;
+  if (field.value.match(alphaExp)||field.value.length == 0) {
+   return true;
+  } else {
+    alert(msg);
+    field.focus();
+    field.select();
+    return false;
+  }
+}
+
+
+function validate_form(thisform)
+{
+with (thisform)
+{
+if (validate_required(carrier,"You must enter a carrier name")==false)
+  {carrier.focus();return false}
+ return true
+}
+}
+</script>
+
+
+</head>
+
+  <body onload="document.request.carrier.focus();">
+
+ <p>
+ 
+<div class="message">
+ <p>
+<!--MESSAGE=--> 
+ <p>
+<hr>
+<p>
+Note: Currently it's not possible to send text messages to Google.
+<p>
+</div>
+
+    <form action="/cgi-bin/sendtophone_newcarrier" method="post" name="request" onsubmit="return validate_form(this)">
+ <table>
+
+ <tr>
+ <td>Carrier or cellular provider:</td>
+ <td><input type="text" name="carrier" size="20" maxlength="40" value=""></td>
+ </tr>
+   <tr>
+   <td> <input type="submit" value="Submit"></td><td></td>
+  </tr>
+</table>
+    </form>
+  </body>
+</html>
