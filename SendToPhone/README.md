@@ -23,3 +23,4 @@ information.
   - sendtophone_newcarrier.html ,
   - sendtophone_result_newcarrier.html ,
   - sendtophone_individual_failure.html 
+  - bigphone.png
