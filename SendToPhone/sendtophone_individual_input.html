@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]>
+  <!-->
+  <html class="no-js">
+  <!--<![endif]-->
+
+  <head>
+    <title>Send Call Number to Phone</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700,400italic,700italic" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/main.min.css" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/components.min.css" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/subpage.min.css" rel="stylesheet"/>
+    <!--[if lt IE 9 ]>
+    <link rel="stylesheet" href="https://template.emory.edu/assets/wdg/clients/library/css/ie8.min.css" />
+    <![endif]-->
+    <!--[if lt IE 8 ]>
+    <link rel="stylesheet" href="https://template.emory.edu/assets/wdg/clients/library/css/ie7.min.css" />
+    <![endif]-->
+
+    <!--   kristian S. tracking code -->
+    <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-61756900-23', 'auto');
+
+    ga('send', 'pageview');
+   </script>
+   <script async src='https://www.google-analytics.com/analytics.js'></script>
+   <script async src='https://template.library.emory.edu/js/plugins/analytics/autotrack/autotrack.js'></script>
+
+<!--   kristian S. tracking code -->
+
+
+
+    <script src="https://template.emory.edu/assets/js/libraries/modernizr-2.6.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style type="text/css">
+      input.field {
+        display: none;
+      }
+      td.feedback {
+        width: 220px;
+        padding: 10px;
+        border: 5px solid gray;
+        margin: 0px;
+        font-size: 2m;
+        font-weight: bolder;
+      }
+    </style>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-xxxxxxx-xx', 'auto');
+
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='https://template.library.emory.edu/js/plugins/analytics/autotrack/autotrack.js'></script>
+
+    <script>
+      function validateForm() {
+        var x = document.forms["sendtophone"]["phone_number"].value;
+        if (x == null || x == "") {
+          alert("Please, enter a phone number");
+          return false;
+        }
+        var x = document.forms["sendtophone"]["carrier"].value;
+        if (x == "-- Select --" || x == "") {
+          alert("Please, select a carrier");
+          return false;
+        }
+        if (validateNumber(phone_number, "Enter a 10 digit phone number without spaces or hyphens.", 14, 14) == false) {
+          phone_number.focus();
+          return false
+        }
+        return true;
+      }
+
+      function validate_required(field, alerttxt) {
+        with(field) {
+          if (value == null || value == "" || value == "-- Select --") {
+            alert(alerttxt);
+            return false
+          } else {
+            return true
+          }
+        }
+      }
+
+      function validateNumber(field, msg, min, max) {
+        if (!min) {
+          min = 0
+        }
+        if (!max) {
+          max = 255
+        }
+        field.value = field.value.replace(/ /g, "");
+        if ((parseInt(field.value) != field.value) ||
+          field.value.length < min ||
+          field.value.length > max) {
+          alert(msg);
+        field.focus();
+        field.select();
+        return false;
+      }
+      return true;
+    }
+
+    function validateNotes(field, msg) {
+      var alphaExp = /^[0-9a-zA-Z\s\.,?]+$/;
+      if (field.value.match(alphaExp) || field.value.length == 0) {
+        return true;
+      } else {
+        alert(msg);
+        field.focus();
+        field.select();
+        return false;
+      }
+    }
+
+
+    function validate_form(thisform) {
+      with(thisform) {
+        if carrier.value == "NONE" {
+          return true
+        }
+
+        if (validateNotes(mynotes, "Notes can only use alphanumerics, spaces, periods, commas and question marks.") == false) {
+          mynotes.focus();
+          return false
+        }
+        if (validate_required(carrier, "You must select a valid carrier name from the dropdown list!") == false) {
+          providername.focus();
+          return false
+        }
+        if (validate_required(phone_number, "You must enter a phone number") == false) {
+          phonenum.focus();
+          return false
+        }
+        if (validateNumber(phone_number, "Enter a 10 digit phone number without spaces or hyphens.", 14, 14) == false) {
+          phone_number.focus();
+          return false
+        }
+        return true
+      }
+    }
+  </script>
+</head>
+<body onLoad="document.sendtophone.phone_number.focus()">
+  <div class="header-hat">
+    <div class="logo container">
+      <img src="https://template.emory.edu/assets/wdg/custom-framework/images/emory-hat-logo.png" alt="logo">
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="container-fluid">
+      <div class="span12" id="main-content">
+        <h1>Send to Phone</h1>
+        <table>
+          <!--MESSAGE=-->
+        </table>
+        <p>Title: <!--TITLE=--></p>
+        <p>Call number: <!--CALL_NUMBER=--></p>
+        <form class="form" action="sendtophone_individual" name="sendtophone" method="post" onsubmit="return validateForm()">
+          <p>Send item information to your phone. <strong>Carrier charges may apply.</strong></p>
+          <fieldset>
+            <input type="hidden" name="callnum" value="<!--CALL_NUMBER=-->">
+            <input type="hidden" name="library" value="<!--LIBRARY=-->">
+            <input type="hidden" name="title" value="<!--TITLE=-->">
+            <input class="field" type="text" name="email2" maxlength="80" value="">
+            <input type="hidden" name="session" value="<!--SESSION=-->">
+            <input type="hidden" name="state" value="0">
+            <div class="control-group">
+              <label class="control-label" for="phone_number">Phone number (10 digits, no dashes):</label>
+              <input class="controls" type="text" id="phone_number" name="phone_number" size="8" maxlength="20" value="<!--PHONE_NUMBER=-->">
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="carrier">Carrier:</label>
+              <select class="controls" id="carrier" name="carrier">
+                <option value="<!--CARRIER=-->">-- Select --</option>
+                <option value="att">ATT</option>
+                <option value="boost">Boost Mobile</option>
+                <option value="cincinatti_bell">Cincinnati Bell</option>
+                <option value="consumer_cellular">Consumer Cellular</option>
+                <option value="credo">Credo Mobile</option>
+                <option value="cricket">Cricket</option>
+                <option value="metropcs">MetroPCS</option>
+                <option value="nextel">Nextel </option>
+                <option value="sprint">Sprint</option>
+                <option value="straight_talk">Straight Talk</option>
+                <option value="t-mobile">T-Mobile</option>
+                <option value="us_cellular">US Cellular</option>
+                <option value="verizon">Verizon</option>
+                <option value="virgin">Virgin Mobile</option>
+                <option value="NONE">None of the above </option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="mynotes">My notes (about 20 characters):</label>
+              <input class="controls" type="text" id="mynotes" name="mynotes" size="30" maxlength="60" value="" x-webkit-speech="true">
+            </div>
+          </fieldset>
+
+          <div class="button-controls controls form-actions">
+            <button class="btn controls" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
