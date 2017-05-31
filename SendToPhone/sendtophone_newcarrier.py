@@ -168,7 +168,7 @@ def main():
      it expects a configuration file on the command line.
      it presents a webform to the user and
      retrieves a carrier name.
-     it email the carrier name to a system administrator.
+     it emails the carrier name to a system administrator.
   """
 
   #sys_email="sirsi@mail.library.emory.edu,bgomez@emory.edu"
