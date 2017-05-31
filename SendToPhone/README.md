@@ -14,6 +14,7 @@ information.
 ## Files ##
   - sendtophone.py ,
   - sendtophone_individual.py ,
+  - sendtophone_newcarrier.py ,
   - sendtophone.cfg , 
   - sendtophone_individual.cfg ,
   - sendtophone_newcarrier.cfg
