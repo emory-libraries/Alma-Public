@@ -2,9 +2,11 @@
 send information about an item found on a discovery platform
 like Primo.
 **sendtophone** receives a list of one or more ALMA mms_ids and
-it presents a list of elegible items. The user selects one item
+it presents a list of elegible items to the web client. 
+The user selects one item
 and the **sendtophone_individual** webservice captures item information
-from ALMA ( title, callnumber, holding library) and presents a webform
+from ALMA ( title, callnumber, holding library). **sendtophone_individual** 
+then presents a webform
 to the user requesting the mobile phone number and the carrier's name.
 **sendtophone_individual** builds an SMS text message with the item 
 information.
