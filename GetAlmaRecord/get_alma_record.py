@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -7,15 +7,18 @@
   api server;  and it displays the consolidated record to 
   the web client in one of three formats: 
     "xml", or
-    "marcedit", or 
+    "marcedit", or
     "text".
-  "text" format is home-grown display of MARC records developed by 
-  bernardo gomez. the default format is xml.
+  "xml" displays a MARCXML object.
+  "marcedit" is terry reese's marcEdit text format.
+  "text" is a home-grown plain text format developed by 
+  bernardo gomez. 
+  the default format is xml.
   example of a request against emory's alma catalog:
   https://libapiproxyprod1.library.emory.edu/cgi-bin/get_alma_record?doc_id=990022633760302486&format=marcedit 
-  
+
   https://libapiproxyprod1.library.emory.edu/cgi-bin/get_alma_record?item_id=010002975279&format=marcedit 
-  
+
   this program expects a configuration file, as a command line argument, with the following lines:
   sys_email= (if script reports fatal failures to admins. not used in this version.)
   api_host=https://api-na.hosted.exlibrisgroup.com
@@ -23,8 +26,9 @@
 
 
 """
-__author__ = "bernardo gomez"
-__date__ = " february 2016"
+
+__author__ = 'bernardo gomez'
+__date__ =  'february 2016'
 
 import os
 import sys 
@@ -38,10 +42,11 @@ from datetime import date, timedelta
 
 def api_request(host,request_data):
 
-   """ it performs a GET request through the url. 
-       url is composed of host and request_data. a 
-       correct response from ALMA's api server 
-       produces a '200' return code.
+   """ 
+      it performs a GET request through the url. 
+      url is composed of host and request_data. a 
+      correct response from ALMA's api server 
+      produces a '200' return code.
    """
    response=""
    outcome=1
@@ -509,7 +514,7 @@ def marcxml_to_text(xml_string):
 
 def get_docid(xml_string):
     """
-      it parses an xml_string recturned by 
+      it parses an xml_string returned by 
       /almaws/v1/items?item_barcode="+str(item_id)
       and it extracts the mms_id of the bibliographic record.
     """
