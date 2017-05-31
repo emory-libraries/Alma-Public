@@ -1,4 +1,4 @@
-#!/bin/env python
+ #!/bin/env python
 r"""
    sendtophone_newcarrier is a webservice that presents
    a webform to receive from a user the name of
@@ -163,13 +163,13 @@ def process_form(form,input_form,result_file,failure_page,smtp_server):
  return
 
 def main():
-  """ It sets the unicorn environment.
-	It shows the input form if input fields are empty.
-	It processes the form if there is at least one
-	input field.
-	The networkID has precedence.
+  """ 
+     it performs a CGI task.
+     it expects a configuration file on the command line.
+     it presents a webform to the user and
+     retrieves a carrier name.
+     it email the carrier name to a system administrator.
   """
-  global no_carrier_page,sys_email
 
   #sys_email="sirsi@mail.library.emory.edu,bgomez@emory.edu"
   sys_email="sirsi@mail.library.emory.edu"
@@ -186,12 +186,6 @@ def main():
   empty_result.append("")
   failure_page=""
 
-# try:
-#   unicorn_environment.set_environment("/s/sirsi/Unicorn/Config")
-# except:
-#    print_failure(failure_page,"Internal system failure.")
-#    send_email(sys_email,"[sendtophone] system failure",no_unicorn_env)
-#    return 1
 
   if (len(sys.argv) < 2):
 	print_failure(failure_page,"Internal system failure. No configuration file.")
@@ -291,4 +285,4 @@ def main():
 
 if __name__=="__main__":
   sys.exit(main())
-  
+
