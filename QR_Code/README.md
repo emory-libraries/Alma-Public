@@ -15,4 +15,6 @@ for the selected item.
  - marcxml.py
  - qrcode.html
  - qrcode_individual.html
+ - qrcode_failure.html
+ - qrcode_apologies.jpg
  
