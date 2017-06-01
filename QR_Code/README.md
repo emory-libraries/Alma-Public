@@ -13,4 +13,6 @@ for the selected item.
  - qrcode.cfg
  - qrcode_individual.cfg
  - marcxml.py
+ - qrcode.html
+ - qrcode_individual.html
  
