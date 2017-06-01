@@ -5,3 +5,8 @@ record. The QR code includes the (short) item title,
 the call number and the holding library.
 
 ## Files:
+ - qrcode.py
+ - qrcode_individual.py
+ - qrcode.cfg
+ - qrcode_individual.cfg
+ 
