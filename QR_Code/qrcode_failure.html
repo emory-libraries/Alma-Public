@@ -12,73 +12,15 @@ td.field {display:none;}
 </style>
 
 
-<script type="text/javascript">
 
-function validate_required(field,alerttxt)
-{
- with (field)
- {
-  if (value==null||value==""||value=="......select......:")
-    {alert(alerttxt);return false}
-  else {return true}
- }
-}
-
-function validateNumber(field, msg, min, max) {
-     if (!min) { min = 0 }
-     if (!max) { max = 255 }
-     if ( (parseInt(field.value) != field.value) ||
-   field.value.length < min ||
-   field.value.length > max) {
-         alert(msg);
-         field.focus();
-         field.select();
-         return false;
-     }
-    return true;
-}
-
-function validateNotes(field, msg) {
-  var alphaExp = /^[0-9a-zA-Z\s\.,?]+$/;
-  if (field.value.match(alphaExp)||field.value.length == 0) {
-   return true;
-  } else {
-    alert(msg);
-    field.focus();
-    field.select();
-    return false;
-  }
-}
-
-
-function validate_form(thisform)
-{
-with (thisform)
-{
-  alert("validating form");
-  return false;
-if (validateNotes(mynotes,"Notes can only use alphanumerics, spaces, periods, commas and question marks.")==false)
-  {mynotes.focus();return false}
-if (validate_required(providername,"You must select a valid carrier name from the dropdown list!")==false)
-  {providername.focus();return false}
-if (validate_required(phonenum,"You must enter a phone number")==false)
-  {phonenum.focus();return false}
-if (validateNumber(phonenum,"Enter a 10 digit phone number without spaces or hyphens.", 10, 10)==false)
-  {phonenum.focus();return false}
- return true
-}
-}
-</script>
-
-
- <title>Send Call Number to Phone</title>
+ <title>QR code -failure</title>
 </head>
 
   <body>
 
  <table class="table1">
  <tr>
- <td> <img src="/qrcode_apologies.jpg" alt="our apologies"> </td>
+ <td> <img src="/qrcode_apologies.jpg" alt="apologies"> </td>
  </tr>
  
  </table>
