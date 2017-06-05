@@ -7,7 +7,7 @@
 ----------------------------------
 
 ### master script to run the other ones
-#### dependencies: requires C programs called marc_to_txt and txt_to_marc (which have not been documented yet)
+#### dependencies: ~~requires C programs called marc_to_txt and txt_to_marc (which have not been documented yet)~~ This can be replaced with pymarc
 
 added to crontab
 
