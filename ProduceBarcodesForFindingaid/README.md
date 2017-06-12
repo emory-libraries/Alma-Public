@@ -5,7 +5,7 @@ and gets the barcodes in ALMA that are associated with the callnumber
 and the repository.
 **produce_barcode_archives** presents the list of barcodes as an XML object.
 
-The search in primo is via PNX deep link. The PNX response is
+The search in primo is via a PNX deep link. The PNX response is
 a JSON object that has the ALMA mms_id.
 
 ### Files:
