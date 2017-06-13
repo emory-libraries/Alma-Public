@@ -11,4 +11,5 @@ shows the link to Worldcat.
 ### Files:
  - search_isbn.py
  - search_isbn.cfg
+ - search_isbn.sh
  
