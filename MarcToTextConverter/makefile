@@ -17,3 +17,4 @@ txt_to_marc.o: txt_to_marc.c
 	$(CC) $(OPTIONS) txt_to_marc.c
 txt_to_marc.c: e_marc.h
 	$(CC) $(OPTIONS) txt_to_marc.c
+	
