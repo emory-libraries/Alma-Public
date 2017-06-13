@@ -18,6 +18,7 @@ indicators;
  - makefile ( it builds the C binary)
  - MARC_subs.c
  - marc_to_txt.c 
+ - e_marc.h
  
  To build **marc_to_txt** , issue the following command
  ```
