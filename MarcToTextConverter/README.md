@@ -7,6 +7,7 @@ The text file has the following format:
 001||control field
 010|indicators|\pasubfielda\pbsubfieldb
 ```
+Bernardo Gomez introduced the above format.
 
 the leader is given the "000" tag;
 001-009 are control fields and they don't have
