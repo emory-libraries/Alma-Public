@@ -12,7 +12,7 @@ Bernardo Gomez introduced the above format.
 the leader is given the "000" tag;
 001-009 are control fields and they don't have
 indicators;
-010-999 are datafields are they have indicators;
+010-999 are datafields and they have indicators;
 "\p" is the subfield separator.
 
 ### Files:
