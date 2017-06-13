@@ -1,0 +1,17 @@
+HOME=your-home-directory
+HOSTNAME=libapiproxyprod1
+http_proxy=http://webproxy.:3128/
+https_proxy=http://webproxy.:3128/
+KDEDIRS=/usr
+LANG=en_US.UTF-8
+LOGNAME=user-here
+MAIL=/var/spool/mail/webserver
+PATH=/usr/lib/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sirsi/webserver/.local/bin:/sirsi/webserver/bin
+PYTHONIOENCODING=utf_8
+PYTHONPATH=/sirsi/webserver/bin/Python
+QTDIR=/usr/lib/qt-3.3
+QTINC=/usr/lib/qt-3.3/include
+QTLIB=/usr/lib/qt-3.3/lib
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+SHELL=/bin/bash
+USER=user-here
