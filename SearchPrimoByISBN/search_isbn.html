@@ -59,9 +59,9 @@ function validateForm()
     <form action="search_isbn" name=isbn_loans method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 
 Secret word:
- <input type="password" name="secretword" size="8" maxlength="20" value=""><br>
+ <input type="password" name="secretword" size="8" maxlength="20" autofocus required value=""><br>
 Source file:
-<input type="file" name="source" size="60" ><br>
+<input type="file" name="source" size="60" required ><br>
 Email Address(es):
 <input type="text" name="email" placeholder="somebody@emory.edu" size="60" maxlength="200" title="You may enter multiple email addresses separated by commas."><br>
 <input type="submit" value="Submit"><br>
