@@ -24,4 +24,6 @@
 
 > 23 23 * * * bash /sirsi/webserver/bin/delete_alma_set.sh 2> /tmp/set_delete_$$.err
 
+> 30 7 1 * * bash /sirsi/webserver/bin/run_browzine_job.sh 2> /tmp/browzine_sh_err_$$.txt
+
 -----------
