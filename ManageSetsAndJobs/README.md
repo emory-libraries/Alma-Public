@@ -6,7 +6,7 @@
 
 #### Contributors: Alex Cooper, Bernardo Gomez, Elizabeth Peele Mumpower
 
-#### Dependencies: needs data (a list of barcodes) from reports such as from analytics
+#### Dependencies: needs job xml
 
 #### Purpose: automate set creation, management, and deletion and job usage
 
