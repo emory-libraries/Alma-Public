@@ -1,4 +1,4 @@
-#!/opt/rh/python27/root/usr/bin/python
+#!/usr/bin/python
 r"""
 Author: Alex Cooper
 Title: Serials OCLC Holdings
@@ -9,8 +9,6 @@ Date: 07/05/2017
 import sys
 import re
 import requests
-import socks
-import socket
 import xml.etree.ElementTree as ET
 
 def get_item_info(result_node,id_list):
@@ -97,8 +95,6 @@ def main():
 ####make first analytics api call
     in_string = ""
     outcome = 1
-    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-    socket.socket = socks.socksocket
     payload = {'apikey':apikey,'path':path,'limit':limit}
     try:
         r = requests.get(analytics_url,params = payload)
@@ -184,7 +180,7 @@ def main():
             sys.stderr.write("empty result"+"\n")
             return 1
          id_list,outcome = get_item_info(result_node,id_list)
-####make last analtics api call
+####make last analytics api call
     else:
         try:
             result_node = tree.find("QueryResult/ResultXml/rowset")
