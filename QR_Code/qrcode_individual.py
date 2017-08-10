@@ -1,4 +1,4 @@
-#!/bin/env python
+ #!/bin/env python
 # -*- coding: utf-8 -*-
 r"""
    qrcode_individual is a webservice that
@@ -53,15 +53,20 @@ def get_record(base_url,docid):
    return xml_string,0
 
 
-def generate_qrcode(file,title,call_number,library):
+def generate_qrcode(file,title,call_number,short_libname,library):
     """
        'file' is the html template.
        generate_qrcode inserts title, call_number 
-       and library in the template.
+       and abbreviated library name in the template.
+       short_libname argument is a string with a list of library names.
+       library argument is ALMA's library code.
     """
-    library_name={'UNIV':'WOODRUFF-MAIN','HLTH':'HEALTH','THEO':'THEOLOGY','OXFD':'OXFORD','MARBL':'MARBL'}
+    library_name={}
+    name_list=short_libname.split(";")
+    for element in name_list:
+        code,name=element.split(":")
+        library_name[code]=name
     title=title[0:60]
-    library=library.replace(" ","")
     try:
        libr_name=library_name[library]
     except:
@@ -159,6 +164,7 @@ def main():
    result_page=""
    get_record_url=""
    image=""
+   short_libname=""
 
    try:
      configuration=open(sys.argv[1])
@@ -181,6 +187,8 @@ def main():
               sys_email=m.group(2)
          if m.group(1) == "get_record_url":
               get_record_url=m.group(2)
+         if m.group(1) == "short_libname":
+              short_libname=m.group(2)
 
    if sys_email== "":
      hostname=os.environ['WWW_HOST']
@@ -194,6 +202,9 @@ def main():
       return 1
    if result_page  == "":
       report_failure("ERROR","System failure. no result file.","")
+      return 1
+   if short_libname  == "":
+      report_failure("ERROR","System failure. no short_libname.","")
       return 1
 
    try:
@@ -248,7 +259,7 @@ def main():
        
    title,outcome=get_bib_title(str(doc_id),get_record_url)
    if outcome == 0:
-       outcome=generate_qrcode(resultf,title,callnum,library)
+       outcome=generate_qrcode(resultf,title,callnum,short_libname,library)
    else:
        report_failure("ERROR","get_bib_title failed:"+doc_id,"")
 
@@ -256,4 +267,3 @@ def main():
 
 if __name__=="__main__":
   sys.exit(main())
-
