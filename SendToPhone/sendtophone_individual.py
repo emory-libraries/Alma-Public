@@ -17,6 +17,7 @@ r"""
      result_page
      sys_email
      unknown_carrier_page
+     short_libname
   the carrier name menu allows a "None of the above".
   the webform will  therefore present another form to 
   receive the name of the new carrier.
@@ -248,7 +249,7 @@ def send_email(prog_name,email_list,subject,message,smtp_server):
   else:
      msg['To'] = email_list
   msg['Subject'] = subject
-  sender="do-not-reply"+"@"+"mail.library.emory.edu"
+  sender="do-not-reply"+"@"+"kleene.library.emory.edu"
 
   msg['From'] = sender
 
@@ -298,11 +299,12 @@ def print_form(file, message,callnum,title,phone_number,carrier,library):
 	return
 
 
-def process_form(form,input_form,result_page,failure_page,carrier_dictionary,smtp_server):
+def process_form(form,input_form,result_page,failure_page,carrier_dictionary,smtp_server,short_libname):
  """
     it  receives a form, it parses fields and it send email message
     to carrier. it also checks time stamp and empty field to catch
     spam robots.
+    short_libname argument is a string with a list of abbreviated library names.
 
  """
  empty_result=[]
@@ -361,8 +363,11 @@ def process_form(form,input_form,result_page,failure_page,carrier_dictionary,smt
   
 ##
  message_body=""
- library_name={'UNIV':'WOODRUFF-MAIN','HLTH':'HEALTH','THEO':'THEOLOGY','OXFD':'OXFORD','MARBL':'MARBL',
-        'BUS':'BUSINESS','MUS':'MUSIC&MEDIA'}
+ library_name={}
+ name_list=short_libname.split(";")
+ for element in name_list:
+     code,name=element.split(":")
+     library_name[code]=name
  try:
      lib_name=library_name[library]
  except:
@@ -375,7 +380,7 @@ def process_form(form,input_form,result_page,failure_page,carrier_dictionary,smt
  subscriber_address=phone_number+carrier_email
 ## sys.stderr.write("subscriber:"+subscriber_address+'\n')
  send_email("sendtophone",subscriber_address,subject_line,message_body,smtp_server)
- print_success(result_page,callnum,title,library)
+ print_success(result_page,callnum,title,lib_name)
  return
 
 def main():
@@ -421,6 +426,7 @@ def main():
   sys_email=""
   get_record_url=""
   smtp_server=""
+  short_libname=""
   pat=re.compile("(.*?)=(.*)")
   for line in configuration:
 	m=pat.match(line)
@@ -442,6 +448,8 @@ def main():
 			smtp_server=m.group(2)
 		if m.group(1) == "carrier_info":
 			carrier_info=m.group(2)
+		if m.group(1) == "short_libname":
+			short_libname=m.group(2)
 ##			sys.stderr.write(input_page+'\n')
 
   if (input_page == ""):
@@ -450,6 +458,10 @@ def main():
 	return 1
   if (result_page == ""):
 	print_error("Internal system failure. result file is missing.")
+	#send_email("sendtophone",sys_email,"[sendtophone] no result file ",no_result_page )
+        return 1
+  if (short_libname == ""):
+	print_error("Internal system failure. short_libname file is missing.")
 	#send_email("sendtophone",sys_email,"[sendtophone] no result file ",no_result_page )
         return 1
   if (unknown_carrier_page == ""):
@@ -506,7 +518,7 @@ def main():
   phone_number=""
   carrier=""
   if outcome == 0:
-    process_form(form,input_form,result_page,failure_page,carrier_dictionary,smtp_server)
+    process_form(form,input_form,result_page,failure_page,carrier_dictionary,smtp_server,short_libname)
     input_form.close()
     return 0
   if outcome == 1:
@@ -556,4 +568,4 @@ def main():
 
 if __name__=="__main__":
   sys.exit(main())
-
+ 
