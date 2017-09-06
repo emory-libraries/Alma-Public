@@ -6,7 +6,7 @@
 # author= 'bernardo gomez'
 # date= 'may 2016'
 ###
-config="/sirsi/webserver/config/" 
+config="pathto/webserver/config/" 
 . ${config}environ     # dot in environ variables
 
 # export all of the environ variables to my children
