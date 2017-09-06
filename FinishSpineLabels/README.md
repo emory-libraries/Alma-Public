@@ -15,4 +15,4 @@ the Windows library application.
 - finish_spine_labels.html
 - environ *
 
-* environ contains relevant unix environment variables to run the application as a CGI.
+ * environ contains relevant unix environment variables to run the application as a CGI.
