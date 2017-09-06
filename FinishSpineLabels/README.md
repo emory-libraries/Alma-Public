@@ -12,3 +12,4 @@ the Windows library application.
 - finish_spine_labels.cfg
 - finish_spine_labels.py
 - finish_spine_labels.sh
+- finish_spine_labels.html
