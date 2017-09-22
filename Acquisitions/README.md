@@ -41,7 +41,7 @@ get_po_line_url=[Alma url]
 apikey=[your apikey]
 ```
 
-#### And requires an [order xml](https://github.com/Emory-LCS/Alma/blob/master/Acquisitions/files/create_order.xml)
+#### And requires an [order xml](https://github.com/Emory-LCS/Alma-Public/blob/master/Acquisitions/files/create_order.xml)
 
 ---
 
