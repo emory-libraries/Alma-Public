@@ -4,10 +4,18 @@ import sys
 import requests
 import xml.etree.ElementTree as ET
 
-def create_order_line(xml):
+def create_order_line(url,apikey,xml):
 
     outcome = 1
-    return xml,outcome
+    headers = {'Content-Type':'application/xml'}
+    payload = {'apikey':apikey}
+    try:
+        r = requests.post(url,headers=headers,params=payload,data=xml)
+        response = r.content
+        outcome = 0
+    except:
+        sys.stderr.write("Could not place POST API call" + "\n")
+    return response,outcome
 
 def main():
 
@@ -26,13 +34,15 @@ def main():
                 url = line[1]
             elif line[0] == "apikey":
                 apikey = line[1]
+            elif line[0] == "test_apikey":
+                test_apikey = line[1]
             else:
                 continue
     except:
         sys.stderr.write("Could not parse configuration file" + "\n")
 ####prepare order line xml
-    response,outcome = create_order_line(order_xml)
-    print response.read()
+    response,outcome = create_order_line(url,apikey,order_xml)
+    print response
 
 if __name__=="__main__":
     sys.exit(main())
