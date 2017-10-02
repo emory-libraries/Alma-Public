@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+<style type="text/css">
+
+.failure {font-size: 3m; font-weight: bold;}
+.message {font-size: 3m; font-weight: bold;}
+
+.field {display:none;}
+
+</style>
+
+<!--  google code follows -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-xxxxxxxx', 'auto');
+
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='https://template.library.emory.edu/js/plugins/analytics/autotrack/autotrack.js'></script>
+
+<!-- end of google code -->
+
+<script type="text/javascript">
+var _formConfirm_submitted = false;
+</script>
+
+<script>
+
+function validateForm()
+{ 
+  var x=document.forms["report_error"]["comment"].value;
+  if (x==null || x=="")
+  {
+    alert("Please, provide a problem or error description.");
+    return false;
+  }
+  if( _formConfirm_submitted == false )
+   { _formConfirm_submitted = true;return true }
+   else{ alert('your request is being processed!'); return false; }
+
+}
+
+</script>
+<title>Report error</title>
+</head>
+
+<body onload="document.report_error.comment.focus()">
+ <div class="failure">
+ <!--MESSAGE=-->
+ </div>
+<table>
+<tr><td>Record ID:</td><td><!--ALMA_ID=--></td></tr>
+</table>
+
+<hr>
+    <form action="report_alma_error" id="report_error" name=report_error method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+   <fieldset>
+      <input type="hidden" name="doc_id" value="<!--ALMA_ID=-->">
+      <input type="text" class="field" name="email2" value="" maxlength="50">
+      <input type="hidden" name="session" value="<!--SESSION=-->">
+      <input type="hidden" name="state" value="<!--STATE=-->">
+Description:
+<textarea autofocus name="comment" required placeholder="Describe error or problem..." ></textarea>
+<br>
+Your email address:
+<input name="email" type="text" id="email" placeholder="somebody@emory.edu" maxlength="100"> (if you desire a reply)
+   <br>
+   <input type="submit" value="Submit">
+   </fieldset>
+    </form>
+
+</body>
+</html>
