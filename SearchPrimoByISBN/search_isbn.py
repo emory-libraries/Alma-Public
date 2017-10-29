@@ -19,6 +19,7 @@ import cgi
 import time
 import json
 import socket
+import codecs
 import subprocess
 import requests
 import xml.etree.ElementTree as elementTree
@@ -166,17 +167,22 @@ def process_form(form_file, max_file_size,result_file,source_file,url,mail_list,
  
 
   try:
-       result=open(result_file,'w')
+       result=codecs.open(result_file, encoding='utf-8', mode='w')
   except:
       print_failure(form_file,"ERROR: couldn't open result file.")
       return
+  in_string=in_string.replace("\r","\n")
   lines=in_string.split("\n")
+  
   sys.stderr.write(str(lines)+"\n")
   #result.write("barcode"+delim+"outcome"+delim+"description"+delim+"recommendation"+delim+"\n")
-  list=[]
+  out_list=[]
   excel_buster="' "
   result.write("isbn"+delim+"match"+delim+"title"+delim+"permalink"+delim+"\n")
   for isbn in lines:
+      char_str=list(isbn)
+      if len(char_str) < 2:
+         continue
       isbn=isbn.rstrip("\n")
       isbn=isbn.rstrip("\r")
       try:
@@ -193,7 +199,17 @@ def process_form(form_file, max_file_size,result_file,source_file,url,mail_list,
 #http://discovere.emory.edu/discovere:default_scope:01EMORY_ALMA21233511590002486
             if pid != "":
               permalink=permalink_base+str(pid)
-              result.write(excel_buster+str(isbn)+delim+"YES"+delim+title[0:80]+delim+permalink+delim+"\n")
+     ### try to get around unicode challenge
+              try:
+                short_title=title[0:80] 
+              except:
+                short_title=title
+      #### unicode challenge
+              try:
+                 result.write(excel_buster+str(isbn)+delim+"YES"+delim+short_title+delim+permalink+delim+"\n")
+              except:
+                 sys.stderr.write("isbn unicode:"+short_title+"\n")
+                 result.write(excel_buster+str(isbn)+delim+"YES"+delim+title+delim+permalink+delim+"\n")
             else:
               result.write(excel_buster+str(isbn)+delim+"NO"+delim+""+delim+"http://worldcat.org/isbn/"+str(isbn)+delim+"\n")
   result.close()
