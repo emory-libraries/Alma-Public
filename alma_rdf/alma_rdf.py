@@ -6,11 +6,6 @@ import urllib2
 
 def get_rdf(mmsid,inst):
     url = "https://open-na.hosted.exlibrisgroup.com/alma/" + inst + "/rda/entity/manifestation/" + mmsid + ".rdf"
-    try:
-        socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 8080)
-        socket.socket = socks.socksocket
-    except:
-        sys.stderr.write("could not open socket" + "\n")
     rdf = urllib2.urlopen(url).read()
     return rdf,url
 
