@@ -21,7 +21,7 @@ def main():
     inst = form.getfirst('institution')
     mmsid = form.getfirst('mmsid')
 
-    if len(form) == 0 or len(mmsid) == 0:
+    if len(form) == 0:
         print '%s' % "Content-Type: text/html; charset=utf-8"
         print ""
         for line in target:
