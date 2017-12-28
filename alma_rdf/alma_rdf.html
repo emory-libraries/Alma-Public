@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]>
+  <!-->
+  <html class="no-js">
+  <!--<![endif]-->
+
+  <head>
+    <title>Scan QR Code</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic400,700,400italic,700italic" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/main.min.css" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/components.min.css" rel="stylesheet" />
+    <link href="https://template.emory.edu/assets/wdg/clients/library/css/subpage.min.css" rel="stylesheet"/>
+
+    <!--[if lt IE 9 ]>
+    <link rel="stylesheet" href="https://template.emory.edu/assets/wdg/clients/library/css/ie8.min.css" />
+    <![endif]-->
+    <!--[if lt IE 8 ]>
+    <link rel="stylesheet" href="https://template.emory.edu/assets/wdg/clients/library/css/ie7.min.css" />
+    <![endif]-->
+
+<!-- kristian code -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-61756900-23', 'auto');
+
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='https://template.library.emory.edu/js/plugins/analytics/autotrack/autotrack.js'></script>
+
+    <script src="https://template.emory.edu/assets/js/libraries/modernizr-2.6.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+      .field {
+        display: none;
+      }
+      #qrcode {
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header-hat">
+      <div class="logo container">
+        <img src="https://template.emory.edu/assets/wdg/custom-framework/images/emory-hat-logo.png" alt="logo">
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="span12" id="main-content">
+          <h1>Alma RDF</h1>
+          <hr></hr>
+
+          <form action="/cgi-bin/alma_rdf" name="hello_server" method="post" enctype="multipart/form-data">
+            <p>Retrieve your Alma records in RDF.</p>
+            Institution name (for example 01GALI_EMORY):<br>
+            <input type="text" name="institution">
+            <br>
+            MmsId (for example 990022952580302486):<br>
+            <input type="text" name="mmsid">
+            <br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  </html>
