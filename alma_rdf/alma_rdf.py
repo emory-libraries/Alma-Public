@@ -20,8 +20,14 @@ def main():
     target = open("/alma/webserver/docs/alma_rdf.html", 'rU')
     inst = form.getfirst('institution')
     mmsid = form.getfirst('mmsid')
-    
-    if len(inst) == 0 or len(mmsid) == 0:
+
+    if len(form) == 0 or len(mmsid) == 0:
+        print '%s' % "Content-Type: text/html; charset=utf-8"
+        print ""
+        for line in target:
+            print line
+        target.close()
+    elif len(inst) == 0 or len(mmsid) == 0:
         print '%s' % "Content-Type: text/html; charset=utf-8"
         print ""
         for line in target:
