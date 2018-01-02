@@ -3,6 +3,12 @@ import sys
 import cgi
 import cgitb; cgitb.enable(display=1, logdir="/tmp")
 import urllib2
+r'''
+Title: Alma RDF
+Purpose: Retrieve Alma records in RDF
+Author: Alex Cooper
+Date: 12/27/2017
+'''
 
 def get_bibframe(mmsid,inst):
     url = "https://open-na.hosted.exlibrisgroup.com/alma/" + inst + "/bf/entity/instance/" + mmsid
