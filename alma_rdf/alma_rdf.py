@@ -57,9 +57,7 @@ def main():
             jsonld,url = get_jsonld(mmsid,inst)
             print '%s' % "Content-Type: text/html; charset=utf-8"
             print ""
-            print "<xmp>"
             print str(jsonld)
-            print "</xmp>"
         elif rec_format  == 'rdf':
             rdf,url = get_rdf(mmsid,inst)
             print '%s' % "Content-Type: text/html; charset=utf-8"
