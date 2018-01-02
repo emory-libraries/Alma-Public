@@ -14,7 +14,7 @@
   <!--<![endif]-->
 
   <head>
-    <title>Scan QR Code</title>
+    <title>Alma LD</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -63,12 +63,19 @@ ga('send', 'pageview');
     <div class="wrapper">
       <div class="container-fluid">
         <div class="span12" id="main-content">
-          <h1>Alma RDF</h1>
+          <h1>Alma Linked Data</h1>
           <hr></hr>
 
           <form action="/cgi-bin/alma_rdf" name="hello_server" method="post" enctype="multipart/form-data">
-            <p>Retrieve your Alma records in RDF.</p>
-            Institution name (for example 01GALI_EMORY):<br>
+            <p>Retrieve your Alma linked data.</p>
+            Record format:<br>
+            <select name="format">
+              <option value="bibframe">Bibframe</option>
+              <option value="jsonld">JsonLD</option>
+              <option value="rdf">RDF</option>
+            </select>
+            <br>
+            Institution code (for example 01GALI_EMORY):<br>
             <input type="text" name="institution">
             <br>
             MmsId (for example 990022952580302486):<br>
