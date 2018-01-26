@@ -38,7 +38,7 @@ def main():
   # Make sftp call and retrieve files #
   #####################################
   with pysftp.Connection(server, username=un, password=pwd) as sftp:
-    sftp.get_d(remote_dir, local_dir)
+    sftp.get_d(remote_dir, local_dir, preserve_mtime=True)
 
   ##########################################
   # Uncomment this line to print variables #
