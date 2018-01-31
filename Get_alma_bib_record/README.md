@@ -6,5 +6,5 @@ for instance, the webservice URL would look like https://kleene.library.emory.ed
  - get_alma_bib.cfg contains ALMA's API key and ALMA's API hostname.
  - get_alma_bib.py contains the CGI script that receives the two webservice
     parameters: "doc_id" and "format" ; retrieves the records from ALMA's API server;
-    and composes the http outpout according to requested format.
+    and composes the http outpout according to the requested format.
     
