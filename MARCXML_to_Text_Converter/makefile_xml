@@ -1,0 +1,8 @@
+CC = /usr/bin/g++
+all: marcxml_to_text
+
+marcxml_to_text: marcxml_to_text.o
+	$(CC) -o marcxml_to_text marcxml_to_text.o -L/usr/local/lib  -lxerces-c
+marcxml_to_text.o: marcxml_to_text.cpp
+	 $(CC) -c marcxml_to_text.cpp 
+   
