@@ -29,5 +29,7 @@ the 000 tag is the record LEADER; ``` ***** ``` is a record delimiter.
 to produce **marcxml_to_text** :
 - you must install the http://xerces.apache.org/xerces-c/ library. 
 - you must add **/usr/local/lib** to  **LD_LIBRARY_PATH** environment.
+- you run ``` gmake -f makefile_xml ```
+
 
 
