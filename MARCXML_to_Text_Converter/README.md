@@ -21,5 +21,7 @@ an example of a text file:
 245|10|\paHanging in judgement :\pbreligion and the death penalty in England from the bloody code to abolition /\pcHarry Potter.
 
 ``` 
-the 000 tag is the record LEADER; ``` ***** ``` is a record delimiter 
+the 000 tag is the record LEADER; ``` ***** ``` is a record delimiter.
+***makefile_xml*** is the make file that produces the marcxml_to_text binary.
+
 
