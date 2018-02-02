@@ -1,13 +1,15 @@
-**produce_barcode_archives** is a webservice that receives a
-code belonging to a finding aid record, the name of a Rose library
-repository; searches primo for the callnumber that matches the code;
-and gets the barcodes in ALMA that are associated with the callnumber
-and the repository.
-**produce_barcode_archives** presents the list of barcodes as an XML object.
+**produce_barcode_archives** is a webservice that receives 
+  - a code belonging to a finding aid call number,
+  - a finding aid call number type,
+  - a Rose library repository name
 
-The search in primo is via a PNX deep link. The PNX response is
-a JSON object that has the ALMA mms_id.
-
+and returns a list of barcodes associated with the
+call number.
+**produce_barcode_archives** searches Primo to get
+titles whose callnumber contains the finding aid
+code and belong to an "archives" resource type.
+The mms_ids of the titles found in Primo are used to find the
+barcodes in ALMA.
 ### Files:
  - produce_barcode_archives.py
  - produce_barcode_archives.cfg
