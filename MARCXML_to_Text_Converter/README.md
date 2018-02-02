@@ -22,6 +22,8 @@ an example of a text file:
 
 ``` 
 the 000 tag is the record LEADER; ``` ***** ``` is a record delimiter.
+
+
 ***makefile_xml*** is the make file that produces the marcxml_to_text binary.
 
 
