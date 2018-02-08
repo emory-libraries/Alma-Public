@@ -6,7 +6,7 @@
 ###		"URL|title_control_key|holding libraries|"
 ###		holding libraries are represented by the policy numbers.
 ###	     The pipe-delimited file is fed to the urlcheker program.
-###  Author: Bernardo Gomez. bgomez@emory.edu . March, 2006.
+###  Author: Bernardo Gomez.  March, 2006.
 ###  Customization:   1) change perl path.
 ###		      2) this script can run in any UNIX system,
 ###		including LINUX. script doesn't have any UNICORN
