@@ -50,7 +50,7 @@ def create_log_entry(log_file,target_file,network_id, file_size):
    try:
       log_file.write(log_entry)
    except:
-      sys.stderr.write("search_isbn\n")
+      pass
    return
 
 def print_form(file_name,message):
@@ -101,7 +101,6 @@ def get_record_info(url):
       sys.stderr.write("http request failed:"+url+"\n")
       return "","",1
    return_code=r.status_code
-   sys.stderr.write("return_code:"+str(return_code)+"\n")
    if str(return_code) == "200":
      response=r.content
    else:
@@ -158,9 +157,6 @@ def process_form(form_file, max_file_size,result_file,source_file,url,mail_list,
   pid=str(os.getpid())
   workfile=workf_prefix+pid
   delim="\t"
-  sys.stderr.write("form_file:"+str(form_file)+"\n")
-  sys.stderr.write("work_file:"+str(workfile)+"\n")
-  sys.stderr.write("result_file:"+str(result_file)+"\n")
   if source_file.file:
     in_string=source_file.file.read()
     source_file.file.close()
@@ -174,7 +170,6 @@ def process_form(form_file, max_file_size,result_file,source_file,url,mail_list,
   in_string=in_string.replace("\r","\n")
   lines=in_string.split("\n")
   
-  sys.stderr.write(str(lines)+"\n")
   #result.write("barcode"+delim+"outcome"+delim+"description"+delim+"recommendation"+delim+"\n")
   out_list=[]
   excel_buster="' "
@@ -193,7 +188,6 @@ def process_form(form_file, max_file_size,result_file,source_file,url,mail_list,
           continue
       if str(isbn)  <> "":
          api_url=url.replace("<ISBN>",str(isbn))
-         #sys.stderr.write(url+"\n")
          pid,title,outcome=get_record_info(api_url)
          if outcome == 0:
 #http://discovere.emory.edu/discovere:default_scope:01EMORY_ALMA21233511590002486
@@ -208,7 +202,6 @@ def process_form(form_file, max_file_size,result_file,source_file,url,mail_list,
               try:
                  result.write(excel_buster+str(isbn)+delim+"YES"+delim+short_title+delim+permalink+delim+"\n")
               except:
-                 sys.stderr.write("isbn unicode:"+short_title+"\n")
                  result.write(excel_buster+str(isbn)+delim+"YES"+delim+title+delim+permalink+delim+"\n")
             else:
               result.write(excel_buster+str(isbn)+delim+"NO"+delim+""+delim+"http://worldcat.org/isbn/"+str(isbn)+delim+"\n")
@@ -217,7 +210,6 @@ def process_form(form_file, max_file_size,result_file,source_file,url,mail_list,
   if os.path.exists(result_file):
 
        command=mail_script+" "+result_file+" "+mail_list
-       sys.stderr.write("command:"+command+"\n")
 
        try:
          p=subprocess.Popen(command, shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -351,7 +343,6 @@ def main():
   hostname=host[0]
 
   sys_email="webserver"+"@"+hostname
-  sys.stderr.write("sys_email:"+sys_email+"\n")
   if len(sys.argv)  < 2:
       print_failure("","Internal system failure. configuration file is missing.")
       return 1
@@ -448,7 +439,6 @@ def main():
   pid=str(os.getpid())
   today_is=time.strftime('%Y%m%d',time.localtime())
   result_file=directory+"/"+file_prefix+today_is+"_"+pid+".xls"
-  #sys.stderr.write("result_file:"+result_file+"\n")
   if outcome == 0:
     password=form.getfirst('secretword')
     if password != secretword:
