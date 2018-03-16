@@ -34,11 +34,15 @@ def main():
       elif m.group(1) == "pwd":
         pwd = m.group(2)
 
-  #####################################
-  # Make sftp call and retrieve files #
-  #####################################
+  ####################################################
+  # Make sftp call, retrieve files, and delete files #
+  ####################################################
   with pysftp.Connection(server, username=un, password=pwd) as sftp:
     sftp.get_d(remote_dir, local_dir, preserve_mtime=True)
+    my_file_list = sftp.listdir(remote_dir)
+    for f in my_file_list:
+      sftp.remove(remote_dir + f)
+    sftp.close()
 
   ##########################################
   # Uncomment this line to print variables #
