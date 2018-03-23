@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
    it reads BIB records from standard input represented in text format 
-   and it writes pipe-delimited text lines compatible with the URL checker
+   and it writes text lines compatible with the URL checker
    program.
    an input record looks like:
    ******
@@ -10,7 +10,7 @@
    856|10|\puhttp://http://vendorsite.com
 
    the corresponding output line looks like:
-   http://vendorsite.com|990032719490302486|1|
+   http://vendorsite.com_|_990032719490302486_|_1_|_
 
 """
 __author__='bernardo gomez'
@@ -26,6 +26,7 @@ def main():
  state="INIT"
  f_001=""
  tab="	"
+ delimiter="_|_"
  try:
    for line in sys.stdin:
       line=line.rstrip("\n")
@@ -38,7 +39,7 @@ def main():
         else:
            if f_001 != "":
               for entry in f_856:
-                 print entry+"|"+f_001+"|"+"1|"
+                 print entry+delimter+f_001+delimiter+"Bibliographic"+delimiter
               f_856=[]
               f_001=""
       else:
@@ -66,10 +67,11 @@ def main():
        return 0
  if state != "INIT" and f_001 != "":
      for entry in f_856:
-          print entry+"|"+f_001+"|"+"1|"
+          print entry+delimiter+f_001+delimiter+"Bibliographic"+delimiter
  return 0
 
 
 if __name__ == "__main__":
   sys.exit(main())
+
 
