@@ -1,22 +1,20 @@
-#!/usr/bin/perl -w 
-### Purpose: This is the URL checker's driver. It reads UNICORN produced 
-###		file; it parses the file to produce a text file with
-###		pipe-delimited lines.
-###		A pipe-delimited line would contain:
-###		"URL|title_control_key|holding libraries|"
+#!/usr/bin/perl -w  -U
+### Purpose: This is the URL checker's driver. It reads a text file
+###             from standard input.     
+###		A text line would contain:
+###		"URL_|_title_control_key_|_resource type_|_"
+###             resource type: bibliographic=1; portfolio=2
 ###		holding libraries are represented by the policy numbers.
-###	     The pipe-delimited file is fed to the urlcheker program.
-###  Author: Bernardo Gomez.  March, 2006.
+###	     The URL file is fed to the urlcheker program.
+###  Author: Bernardo Gomez. bgomez@emory.edu . March, 2006.
 ###  Customization:   1) change perl path.
 ###		      2) this script can run in any UNIX system,
-###		including LINUX. script doesn't have any UNICORN
-###		dependencies. 
+###		including LINUX. 
 ###		     3) change sendmail's path to reflect your local
 ###			server.
-###		     4) add extra perl code if the UNICORN file
+###		     4) add extra perl code if the input file
 ###			contains other MARC tags with URLs. See parse_input
 ###		      subroutine for clues.
-### 			This script only parses 856 tags as delivered.
 use strict;
 use integer;
 use Getopt::Std;
@@ -38,7 +36,7 @@ sub parse_input;
 sub opening;
 sub closing;
 sub give_help;
-our ($opt_d,$opt_e,$opt_f,$opt_i,$opt_m,$opt_n,$opt_t,$opt_x);
+our ($opt_d,$opt_e,$opt_f,$opt_i,$opt_m,$opt_n,$opt_s,$opt_t,$opt_x);
 my $exception;
 my $input;
 my $selected=0;
@@ -54,6 +52,7 @@ my $chunk_file_name;
 my $output;
 my $tempdir;
 my %mail_info;
+my $separator;
 my $chunk_name;
 my $total_lines=0;
 my $remainder;
@@ -68,7 +67,7 @@ my $Subject="";
 $number_threads=4;
 $exception="";
 $input="";
-getopts('xe:n:i:m:t:d:');
+getopts('xe:n:i:m:t:d:s:');
 opening();
 $tempdir="/tmp/";
 $tempdir="/alma/integrations/urlCheck/work/";
@@ -76,6 +75,9 @@ $tempdir="/alma/integrations/urlCheck/work/";
 #   print STDERR "**ERROR $0; couldn't register with email server. make sure that sendmail program is available.\n";
 #   exit 1;
 #}
+#
+$separator="_\|_";
+
 $mail_list="sirsi\@mail.library.emory.edu";
 if (defined($opt_e)){
 	$exception=$opt_e;
@@ -92,6 +94,9 @@ if (defined($opt_n)){
 if (defined($opt_d)){
 	$time_out=$opt_d;
 }
+if (defined($opt_s)){
+	$separator=$opt_s;
+}
 if (defined($opt_t)){
 	$tempdir=$opt_t;
 }
@@ -100,8 +105,8 @@ if (defined($opt_x) || $input eq ""){
  closing($considered,$selected,$total_lines);
  exit 0;
 }
-$output="$tempdir/out_parser_"; 
-$url_list="$tempdir/urls_";
+$output=$tempdir."out_parser_"; 
+$url_list=$tempdir."urls_";
 if ($input eq ""){
 	print STDERR "**ERR $0: input file is missing\n";
 	print STDERR "** $0: run select_urls.pl to obtain $input file\n";
@@ -167,8 +172,14 @@ my @sorted_list;
 $total_lines=scalar(@sorted_list);
 $chunk_size=$total_lines/$number_threads;
 $remainder=$total_lines%$number_threads;
+if ($chunk_size == 0){
+   $number_threads=0;
+}
 if ($remainder > 0){
- $number_threads+=1;
+  if ($chunk_size == 0){
+     $chunk_size=$remainder;
+  }
+  $number_threads+=1;
 }
 ### split file into $number_threads.
 $chunk_name="aaa";
@@ -179,7 +190,7 @@ unless(open(URL_FILE,"<",$output)){
 	exit 1;
 }
 $i=0;
-$chunk_file_name="$tempdir/chunk_$chunk_name";
+$chunk_file_name=$tempdir."chunk_$chunk_name";
 unless(open(CHUNK,">","$chunk_file_name")){
 	print STDERR "**ERR $0: couldn't open chunk file $chunk_file_name\n";
 	print_log();
@@ -194,7 +205,7 @@ LOOP: foreach $line (@sorted_list){
 		print STDERR "WARNING $0: you're trying to split url file in too many chunks!\n";
 		next LOOP;
 	}
-	$chunk_file_name="$tempdir/chunk_$chunk_name";
+	$chunk_file_name=$tempdir."chunk_$chunk_name";
 	unless(open(CHUNK,">","$chunk_file_name")){
 		print STDERR "**ERR $0: couldn't open chunk file $chunk_file_name\n";
 		print_log();
@@ -230,17 +241,17 @@ my @processID;
 my $result_file;
 my $input_urls;
 my $fork_failed=0;
-unlink("$tempdir/checkurl.log");
+unlink($tempdir."checkurl.log");
 for ($i=0;$i<$number_threads;$i++){
 	if (!defined($processID[$i] = fork())) {
 		$fork_failed+=1;
 	}
 	elsif ($processID[$i] ==0){
 		## this is the child. you may do work.
-		$result_file="$tempdir/url_result_$chunk_name";
-		$input_urls="$tempdir/chunk_$chunk_name";
-		#qx%checkurl.pl -t $time_out < $input_urls 2>> $tempdir/checkurl.log > $result_file%;
-		qx%curl_to_checkurl.sh -t $time_out < $input_urls 2>> $tempdir/checkurl.log > $result_file%;
+		$result_file=$tempdir."url_result_$chunk_name";
+		$input_urls=$tempdir."chunk_$chunk_name";
+		qx%checkurl.py -w $tempdir -t $time_out < $input_urls 2>> $tempdir."checkurl.log" > $result_file%;
+		#qx%curl_to_checkurl.sh -t $time_out < $input_urls 2>> $tempdir."checkurl.log" > $result_file%;
 		sleep 2;
 		exit 0;
 	}
@@ -254,15 +265,15 @@ if ($fork_failed ==0){
 else{
 	print STDERR "**ERROR $0: fork failed\n";
 	print STDERR "**ERROR $0: only one thread will be executed\n";
-	qx%checkurl.pl  < $input_urls 2>> $tempdir/checkurl.log > $result_file%;
+	qx%checkurl.py -w $tempdir -t $time_out < $input_urls 2>> $tempdir."checkurl.log" > $result_file%;
 }
 my $union_file;
 $chunk_name="aaa";
 for ($i=0;$i<$number_threads;$i++){
-   unlink("$tempdir/chunk_$chunk_name");
+   ####unlink($tempdir."chunk_$chunk_name");
    $chunk_name++;
 }
-$union_file="$tempdir/all_processed_urls";
+$union_file=$tempdir."all_processed_urls";
 print STDERR "**INFO $0: about to write processed URLs\n";
 unless(open(UNION,">",$union_file)){
 		print STDERR "**ERR $0: couldn't write onto $chunk_file_name\n";
@@ -271,7 +282,7 @@ unless(open(UNION,">",$union_file)){
 		exit 1;
 }
 $chunk_name="aaa";
-$result_file="$tempdir/url_result_$chunk_name";
+$result_file=$tempdir."url_result_$chunk_name";
 for ($i=0;$i<$number_threads;$i++){
 	unless(open(CHUNK,"<",$result_file)){
 		print STDERR "**ERR $0: couldn't open $result_file\n";
@@ -290,11 +301,11 @@ for ($i=0;$i<$number_threads;$i++){
 	}
 	close(CHUNK);
 	$chunk_name++;
-	$result_file="$tempdir/url_result_$chunk_name";
+	$result_file=$tempdir."url_result_$chunk_name";
 }
 close(CHUNK);
 close(UNION);
-$union_file="$tempdir/all_processed_urls";
+$union_file=$tempdir."all_processed_urls";
 print STDERR "**INFO $0: about to read processed URLs\n";
 unless(open(UNION,"<",$union_file)){
 		print STDERR "**ERR $0: couldn't open $union_file\n";
@@ -304,7 +315,7 @@ unless(open(UNION,"<",$union_file)){
 }
 $chunk_name="aaa";
 for ($i=0;$i<$number_threads;$i++){
-   unlink("$tempdir/url_result_$chunk_name");
+   ###unlink($tempdir."url_result_$chunk_name");
    $chunk_name++;
 }
 my $inet_protocol;
@@ -324,6 +335,7 @@ my @refused_by_server_txt;
 my @unknown_host_txt;
 my @defective_response_txt;
 my @bad_url_txt;
+my @connection_failed_txt;
 my $j;
 my $libr_entry;
 foreach $libr_entry (keys %mail_info){
@@ -338,10 +350,12 @@ foreach $libr_entry (keys %mail_info){
 	$unknown_host_txt[$libr_entry]="";
 	$defective_response_txt[$libr_entry]="";
 	$bad_url_txt[$libr_entry]="";
+	$connection_failed_txt[$libr_entry]="";
 }
 HERE1: while($line=<UNION>){
+        #print STDERR "$line";
 	chomp($line);
-	($inet_protocol,$return_code,$verbose_code,$new_target,$target,$title_key,$owning_libraries)=split(/\|/,$line);
+	($inet_protocol,$return_code,$verbose_code,$new_target,$target,$title_key,$owning_libraries)=split(/_\|_/,$line);
 	if ($return_code == 200||
 		$return_code == 301||
 		$return_code == 302||
@@ -361,7 +375,7 @@ HERE1: while($line=<UNION>){
 	elsif ($return_code == 403){
 		report_URL($title_key,$owning_libraries,$target,\@forbidden_txt);
 	}
-	elsif ($return_code == 404 || $return_code == 410){
+	elsif ($return_code == 404 || $return_code == 410 || $return_code == 608){
 		report_URL($title_key,$owning_libraries,$target,\@not_found_txt);
 	}
 	elsif ($return_code == 500){
@@ -382,6 +396,10 @@ HERE1: while($line=<UNION>){
 	elsif ($return_code == 606){
             #print STDERR "606 code\n";
 		report_URL($title_key,$owning_libraries,$target,\@bad_url_txt);
+	}
+	elsif ($return_code == 607){
+            #print STDERR "607 code\n";
+		report_URL($title_key,$owning_libraries,$target,\@connection_failed_txt);
 	}
 }
 ## send email messages next.
@@ -498,6 +516,17 @@ foreach $j (keys %mail_info){
 		$email_body="Ill-formed HTTP field:\n\n";
 		$email_body.="$bad_url_txt[$j]";
                 $Subject="urlchecker: bad URL [$libr_name]";
+                print MAIL "To: $mail_address\nFrom: $reply_to\nSubject: $Subject\n\n$email_body";
+		close(MAIL);
+	}
+	if ($connection_failed_txt[$j] ne ""){
+		unless (open(MAIL,"|/usr/sbin/sendmail -t -bm")){
+			print STDERR "**ERROR $0; couldn't register with email server. make sure that sendmail program is available.\n";
+			exit 1;
+		}
+		$email_body="Connection failed:\n\n";
+		$email_body.="$connection_failed_txt[$j]";
+                $Subject="urlchecker: connection failed [$libr_name]";
                 print MAIL "To: $mail_address\nFrom: $reply_to\nSubject: $Subject\n\n$email_body";
 		close(MAIL);
 	}
@@ -650,13 +679,13 @@ my $found;
 }
 sub give_help {
 	print STDERR "  usage: turbo_url_alma.pl -i input-file \n       [-n threads] \n      -m mailing_list \n      -t tempdirectory \n      [-e exception-list]\n      [-d timer]\n";
-	print STDERR "   input file is a text file with pipe-delimited fields. \n";
-	print STDERR "     each input line is: url|mms_id|library_number(ignored). \n";
+	print STDERR "   input file is a text file with string-delimited fields. \n";
+	print STDERR "     each input line is: url_|_mms_id_|_resource type(bibliographic=1; portfolio=2). \n";
 	print STDERR "   threads is the number of simultaneous url-checking processes. Default value is 4.\n";
-	print STDERR "   mailing list is the file containing:\n    library-number|library-name|email_addresses|\n   threads is the number of simultaneous url-checking processes. Default value is 4.\n";
+	print STDERR "   mailing list is the file containing:\n    resource_type-number|resource_type-name|email_addresses|\n   threads is the number of simultaneous url-checking processes. Default value is 4.\n";
 	print STDERR "   timer is the time-out value for the urlchecker. Default value is 20 seconds.\n";
 	print STDERR "   exception list is the file containing the strings that should be ignored by turbo_url. One string per line.\n      For instance: www.ebsco.com means _ignore all URLs whose hostname is www.ebsco.com_\n";
-	print STDERR "=======\n  turbo_url reads a text file that contains lines like:\nhttp://www.pitts.emory.edu/CDRI2/00002530.pdf|record_key|library_number|\n The pipe-delimited file is fed into the URL checker\n";
+	print STDERR "=======\n  turbo_url reads a text file that contains lines like:\nhttp://www.pitts.emory.edu/CDRI2/00002530.pdf_|_record_key_|_1_|_\n The text file is fed into the URL checker\n";
         return 0;
 }
 sub print_log {
