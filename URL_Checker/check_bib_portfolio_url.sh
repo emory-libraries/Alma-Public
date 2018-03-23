@@ -17,11 +17,11 @@ if [ $# -lt 1 ]; then
    echo "usage: check_bib_portfolio_url.sh input-file " >&2
    exit 1
 fi
-input_dir=/alma/integrations/urlCheck/
-output_dir=/alma/integrations/urlCheck/
-work_dir=/alma/integrations/urlCheck/work/
-config_dir=/alma/config/
-bin_dir=/alma/bin/
+input_dir=pathtoalma/integrations/urlCheck/
+output_dir=pathtoalma/integrations/urlCheck/
+work_dir=pathtoalma/integrations/urlCheck/work/
+config_dir=pathtoalma/config/
+bin_dir=pathtoalma/bin/
 
 file=$1
 
