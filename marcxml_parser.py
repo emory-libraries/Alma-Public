@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/opt/rh/python27/root/usr/bin/python
 r"""
 Author: Alex Cooper
 Title: MARCXML Parser
@@ -14,6 +14,8 @@ def parse_items(df):
     material_type = ""
     desc = ""
     call_no = ""
+    library = ""
+    location = ""
     delim = "|"
     subfield = df.findall("subfield")
     for sf in subfield:
@@ -24,9 +26,13 @@ def parse_items(df):
             material_type = str(sf.text)
         if code == "c":
             desc = str(sf.text)
+        if code == "f":
+            call_no = sf.text
         if code == "d":
-            call_no = str(sf.text)
-        item = barcode + delim + material_type + delim + call_no + delim + desc
+            library = sf.text
+        if code == "e":
+            location = sf.text
+        item = library + delim + location + delim + barcode + delim + material_type + delim + call_no + delim + desc
     return item
 
 def parse_record(record):
@@ -53,7 +59,7 @@ def parse_record(record):
             for sf in subfield:
                 code = sf.get("code")
                 if code == "a":
-                    title = str(sf.text)
+                    title = sf.text
         if tag == "999":
             item = parse_items(df)
             items.append(item)
@@ -67,7 +73,7 @@ def main():
     marc_xml = sys.stdin.read()
     tree = ET.fromstring(marc_xml)
     records = tree.findall("record")
-    print "MMSID" + delim + "FORM OF ITEM" + delim + "TITLE" + delim + "BARCODE" + delim + "MATERIAL TYPE" + delim + "CALL NUMBER" + delim + "DESCRIPTION"
+    print "MMSID" + delim + "FORM OF ITEM" + delim + "TITLE" + delim + "LIBRARY" + delim + "LOCATION" + delim + "BARCODE" + delim + "MATERIAL TYPE" + delim + "CALL NUMBER" + delim + "DESCRIPTION"
     for record in records:
         rows = parse_record(record)
         for row in rows:
